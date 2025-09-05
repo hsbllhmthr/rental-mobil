@@ -1,0 +1,1923 @@
+/* Mengimpor Font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Reset Dasar & Pengaturan Font Global */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'General Sans', sans-serif;
+    /* Menggunakan Poppins sebagai alternatif */
+    background-color: #f4f4f4;
+    /* Warna latar belakang halaman agar tidak kosong */
+}
+
+/* Kontainer utama untuk halaman */
+.page-container {
+    max-width: 1366px;
+    /* Lebar maksimal sesuai desain */
+    margin: auto;
+    /* Pusatkan kontainer */
+    background: white;
+    position: relative;
+    /* Diperlukan untuk child dengan position absolute */
+}
+
+/* Bagian Header */
+.header {
+    background-color: #118AEC;
+    color: white;
+    height: 158px;
+    padding: 0 125px;
+    /* Padding kiri dan kanan */
+    display: flex;
+    /* Menggunakan Flexbox untuk alignment */
+    justify-content: space-between;
+    /* Mendorong item ke sisi berlawanan */
+    align-items: center;
+    /* Menengahkan item secara vertikal */
+}
+
+/* Menu Navigasi */
+.nav-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* Hapus bullet points */
+    display: flex;
+    /* Buat item menu sejajar */
+    gap: 45px;
+    /* Jarak antar item menu */
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+/* Tombol Autentikasi (Daftar & Masuk) */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /* Jarak antara "Daftar" dan tombol "Masuk" */
+}
+
+.auth-buttons a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.auth-buttons .btn-login {
+    padding: 14px 24px;
+    border: 2px solid white;
+    border-radius: 12px;
+    background-color: transparent;
+    /* Pastikan latar belakang awal transparan */
+
+    /* Tambahkan ini untuk animasi yang mulus */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tambahkan blok baru ini untuk efek saat hover */
+.auth-buttons .btn-login:hover {
+    background-color: white;
+    /* Latar belakang menjadi putih */
+    color: #118AEC;
+    /* Warna teks menjadi biru sesuai tema */
+}
+
+/* Bagian Hero Banner */
+.hero-section img {
+    width: 100%;
+    /* Lebar gambar memenuhi kontainer */
+    height: 768px;
+    display: block;
+    /* Hapus spasi ekstra di bawah gambar */
+    object-fit: cover;
+    /* Pastikan gambar menutupi area tanpa distorsi */
+}
+
+/*
+========================================
+  Bagian Daftar Mobil (Car Listing) - (Diperbarui)
+========================================
+*/
+
+/* Kontainer untuk seluruh bagian daftar mobil */
+.car-listing {
+    padding: 80px 125px;
+}
+
+/* Header dari bagian daftar mobil */
+.car-listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.car-listing-header h2 {
+    color: #333333;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.car-listing-header .view-all-link {
+    color: #118AEC;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+/* Kontainer untuk semua kartu mobil */
+.car-cards-container {
+    display: flex;
+    justify-content: flex-start;
+    /* Diubah agar selalu rata kiri */
+    gap: 15px;
+    flex-wrap: wrap;
+    /* Pastikan ini ada agar kartu bisa turun ke baris baru */
+}
+
+/* Styling untuk setiap kartu mobil */
+/* Styling untuk setiap kartu mobil */
+/* Styling untuk setiap kartu mobil */
+.car-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px #E6E6E6 solid;
+    width: 355px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    /* Menggunakan flexbox untuk layout vertikal */
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* TAMBAHKAN BLOK BARU INI untuk efek saat hover */
+.car-card:hover {
+    transform: translateY(-8px);
+    /* Efek kartu sedikit terangkat */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    /* Efek bayangan lebih jelas */
+}
+
+/* TAMBAHKAN BLOK BARU INI untuk efek saat hover */
+.car-card:hover {
+    transform: translateY(-8px);
+    /* Efek kartu sedikit terangkat */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    /* Efek bayangan lebih jelas */
+}
+
+.car-card img.car-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+/* Konten di dalam kartu */
+.car-card-body {
+    padding: 20px 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.car-card-body h3 {
+    color: #333333;
+    font-size: 20px;
+    font-weight: 400;
+    /* Disesuaikan dengan referensi */
+    margin: 0 0 10px 0;
+}
+
+/* Styling harga */
+.car-price {
+    margin-bottom: 0px;
+}
+
+.car-price .price-amount {
+    color: #333333;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.car-price .price-period {
+    color: #333333;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Garis pemisah */
+.separator {
+    border: none;
+    height: 1px;
+    background-color: #E6E6E6;
+    margin-bottom: 20px;
+}
+
+/* Grid untuk spesifikasi mobil */
+.car-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* UBAH JADI 3 KOLOM */
+    gap: 1px;
+    /* Jarak antar item spesifikasi */
+    row-gap: 20px;
+    /* Tambahkan jarak vertikal antar baris agar lebih rapi */
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Jarak antara ikon dan teks */
+}
+
+.spec-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.spec-item span {
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/*
+========================================
+  Bagian Footer
+========================================
+*/
+
+.footer {
+    background-color: #1E1E1E;
+    color: white;
+    padding: 80px 125px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    /* Jarak antar kolom footer */
+}
+
+.footer-column {
+    flex: 1;
+    /* Memberi fleksibilitas pada lebar kolom */
+}
+
+/* Kolom pertama: Tentang perusahaan */
+.footer-column.about {
+    flex-basis: 10%;
+    /* Beri lebar lebih pada kolom pertama */
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.footer-column p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+    margin: 0;
+    color: #dbdbdb;
+    /* Sedikit lebih redup agar tidak terlalu mencolok */
+}
+
+/* Kolom Link & Kontak */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 20px;
+}
+
+.footer-column a {
+    color: #dbdbdb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #118AEC;
+    /* Warna hover sesuai tema */
+}
+
+/* Kolom Kontak */
+.footer-column .contact-item strong {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Kolom Sosial Media */
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    /* Anda bisa menambahkan styling untuk ikon di sini */
+    font-size: 24px;
+    /* Contoh jika menggunakan font icon */
+}
+
+.social-icons a {
+    color: #dbdbdb;
+    /* Sesuaikan warna ikon dengan link lain */
+    font-size: 24px;
+    text-decoration: none;
+    /* Hilangkan garis bawah jika ada */
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* Transisi untuk hover */
+}
+
+.social-icons a:hover {
+    color: #118AEC;
+    /* Warna berubah saat hover */
+    transform: scale(1.1);
+    /* Ikon sedikit membesar saat hover */
+}
+
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*
+========================================
+  Halaman Detail Mobil
+========================================
+*/
+.detail-container {
+    padding: 30px 125px 80px 125px;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #A3A3A3;
+    margin-bottom: 30px;
+}
+
+.breadcrumb a {
+    color: #A3A3A3;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: #333;
+}
+
+.detail-content {
+    display: flex;
+    gap: 50px;
+}
+
+/* Kolom Kiri: Galeri */
+.car-gallery {
+    flex: 1;
+    /* Biarkan kolom ini mengisi sisa ruang yang fleksibel */
+}
+
+.car-gallery .main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.thumbnail-images {
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnail-images img {
+    width: calc(33.333% - 14px);
+    height: auto;
+    border-radius: 12px;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+/* Kolom Kanan: Info */
+.car-info-card {
+    width: 250px;
+    /* Atur lebar tetap sesuai referensi */
+    flex-shrink: 0;
+    /* Mencegah kolom ini menyusut */
+    background: white;
+    border-radius: 12px;
+    border: 2px #E6E6E6 solid;
+    padding: 30px 40px;
+    align-self: flex-start;
+    /* Agar tingginya sesuai konten */
+    position: sticky;
+    top: 30px;
+}
+
+.car-info-card h1 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+.car-info-card .price-label {
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.price-details {
+    margin-bottom: 0px;
+}
+
+.price-details .price-amount-detail {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.price-details .price-period-detail {
+    font-size: 18px;
+    color: #A3A3A3;
+    margin-left: 5px;
+}
+
+.car-info-card .spec-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.spec-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.spec-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.spec-list li img {
+    width: 24px;
+    height: 24px;
+}
+
+.btn-rental {
+    display: block;
+    width: 259px;
+    /* Atur lebar tombol sesuai referensi */
+    background: #118AEC;
+    color: white;
+    text-align: center;
+    padding: 18px 0;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-rental:hover {
+    background-color: #0d73c7;
+}
+
+/*
+========================================
+  Deskripsi & Fitur di Halaman Detail
+========================================
+*/
+.detail-left-column {
+    flex: 1;
+    /* Menggantikan .car-gallery agar bisa menampung konten lain */
+}
+
+.car-details-lower {
+    margin-top: 50px;
+    /* Jarak dari galeri gambar */
+}
+
+.description-section,
+.features-section {
+    margin-bottom: 40px;
+}
+
+.description-section h2,
+.features-section h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.description-section p {
+    font-size: 14px;
+    line-height: 25px;
+    color: black;
+}
+
+.features-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.features-table th {
+    text-align: left;
+    color: black;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.features-table td {
+    padding: 15px 0;
+    color: #818181;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.features-table tr:last-child td {
+    border-bottom: none;
+    /* Hapus border untuk baris terakhir */
+}
+
+/*
+========================================
+  Halaman Form Register Baru
+========================================
+*/
+.register-container {
+    padding: 80px 250px;
+}
+
+.register-header {
+    margin-bottom: 40px;
+    /* Jarak dikurangi */
+}
+
+.register-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+    margin: 0 0 10px 0;
+}
+
+.register-header p {
+    font-size: 18px;
+    color: #A3A3A3;
+    margin: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Membuat 2 kolom */
+    gap: 40px 30px;
+    /* Jarak vertikal dikurangi */
+    margin-bottom: 40px;
+}
+
+.form-group-large {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.form-group-large label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 12px;
+}
+
+.form-group-large input[type="text"],
+.form-group-large input[type="tel"],
+.form-group-large input[type="email"],
+.form-group-large input[type="password"] {
+    width: 100%;
+    height: 55px;
+    /* Tinggi input diperkecil */
+    padding: 0 20px;
+    /* Padding disesuaikan */
+    border-radius: 8px;
+    /* Border radius disesuaikan */
+    border: 1px #A3A3A3 solid;
+    font-size: 16px;
+    /* Ukuran font di dalam input diperkecil */
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Styling Khusus untuk Tombol Upload File */
+.file-upload-wrapper {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    /* Tinggi disamakan dengan input lain */
+}
+
+.file-input {
+    display: none;
+    /* Sembunyikan input file asli */
+}
+
+.file-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    /* Border radius disesuaikan */
+    border: 1px #A3A3A3 solid;
+    cursor: pointer;
+    font-size: 16px;
+    /* Ukuran font disesuaikan */
+    color: #A3A3A3;
+    font-weight: 400;
+}
+
+.btn-register-submit {
+    width: 100%;
+    height: 55px;
+    /* Tinggi tombol disamakan */
+    background: #118AEC;
+    border: none;
+    border-radius: 8px;
+    /* Border radius disesuaikan */
+    color: white;
+    font-size: 18px;
+    /* Ukuran font tombol disesuaikan */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register-submit:hover {
+    background-color: #0d73c7;
+}
+
+.login-prompt {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    /* Ukuran font disesuaikan */
+    color: #A3A3A3;
+}
+
+.login-prompt a {
+    color: #118AEC;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/*
+========================================
+  Styling untuk Pop-up (Modal) Login (Versi Baru)
+========================================
+*/
+.modal-overlay {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    /* Dibuat flex oleh JS saat aktif */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 40px;
+    /* Padding diperkecil */
+    border-radius: 12px;
+    position: relative;
+    width: 90%;
+    max-width: 420px;
+    /* Lebar maksimal diperkecil */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+    /* Jarak dikurangi */
+}
+
+.modal-header h1 {
+    font-size: 24px;
+    /* Font diperkecil */
+    font-weight: 600;
+    color: #333333;
+    margin: 20px 0 10px 0;
+}
+
+.modal-header p {
+    font-size: 14px;
+    /* Font diperkecil */
+    color: #A3A3A3;
+    margin: 0;
+}
+
+.modal-content .form-group label {
+    display: block;
+    /* PENTING: Membuat label berada di barisnya sendiri */
+    margin-bottom: 10px;
+    /* Jarak antara label dan kotak input */
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    /* Pastikan teks label rata kiri */
+    margin-top: 20px;
+}
+
+.modal-content .form-group input {
+    height: 50px;
+    /* Tinggi input diperkecil */
+    width: 308px;
+    border-radius: 8px;
+    border: 1px #A3A3A3 solid;
+    padding: 0 15px;
+    /* Padding disesuaikan */
+    font-size: 15px;
+    /* Font diperkecil */
+}
+
+.btn-login-submit {
+    width: 100%;
+    height: 50px;
+    /* Tinggi tombol diperkecil */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #118AEC;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    /* Font diperkecil */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login-submit:hover {
+    background-color: #0d73c7;
+}
+
+.form-prompt {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    /* Font diperkecil */
+}
+
+.form-prompt a {
+    color: #118AEC;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/*
+========================================
+  Styling untuk Pop-up "Login Required"
+========================================
+*/
+.text-center {
+    text-align: center;
+}
+
+.modal-icon {
+    font-size: 50px;
+    color: #f8bb86;
+    /* Warna kuning peringatan */
+    margin-bottom: 20px;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.modal-content p {
+    margin: 0 auto 30px auto;
+    max-width: 100%;
+    color: #545454;
+    line-height: 1.6;
+}
+
+.modal-content .btn-rental {
+    margin: 0 auto;
+    /* Ini akan memusatkan tombol secara horizontal */
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.modal-icon.success {
+    color: #28a745;
+    /* Warna hijau sukses */
+}
+
+.btn-primary {
+    background-color: #118AEC;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    width: 150px;
+    height: 50px;
+}
+
+/*
+========================================
+  Halaman Cari Mobil
+========================================
+*/
+.search-page-container,
+.search-results-container {
+    padding: 40px 125px;
+}
+
+.search-header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.search-header h1 {
+    font-size: 24px;
+    color: #333333;
+    margin: 0 0 10px 0;
+}
+
+.search-header p {
+    font-size: 18px;
+    color: #A3A3A3;
+    margin: 0;
+}
+
+.search-form {
+    margin-top: 20px;
+}
+
+/* Kotak pencarian utama dan tombolnya */
+.main-search-bar {
+    display: flex;
+    gap: 15px;
+    /* Memberi jarak antara input dan tombol */
+    margin-bottom: 20px;
+}
+
+.main-search-bar input {
+    flex-grow: 1;
+    /* Biarkan input mengisi sisa ruang */
+    height: 56px;
+    padding: 0 20px;
+    border: 2px solid #E6E6E6;
+    border-radius: 12px;
+    /* Diberi border-radius penuh */
+    font-size: 14px;
+}
+
+.main-search-bar button {
+    height: 56px;
+    padding: 0 40px;
+    /* Atur lebar tombol dengan padding */
+    border: none;
+    background-color: #118AEC;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 12px;
+    /* Diberi border-radius penuh */
+    cursor: pointer;
+    flex-shrink: 0;
+    /* Mencegah tombol menyusut */
+}
+
+/* Baris untuk filter dropdown */
+.filter-bar {
+    display: flex;
+    gap: 20px;
+}
+
+.filter-bar select {
+    width: 216px;
+    /* ATUR PANJANG FILTER DI SINI */
+    height: 56px;
+    padding: 0 15px;
+    border-radius: 12px;
+    border: 2px solid #E6E6E6;
+    background-color: white;
+    font-size: 14px;
+    color: #A3A3A3;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+/*
+========================================
+  Styling untuk Hasil Pencarian Kosong
+========================================
+*/
+.no-results-container {
+    width: 100%;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.suggestion-box {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.suggestion-box h3 {
+    margin-top: 0;
+}
+
+.suggestion-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.suggestion-item a {
+    display: block;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.suggestion-item a:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.suggestion-item a strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.suggestion-item a span {
+    font-size: 14px;
+    color: #777;
+}
+
+/*
+========================================
+  Halaman Pemesanan (Booking) v2
+========================================
+*/
+.booking-page-container {
+    padding: 40px 125px;
+}
+
+.booking-layout {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    align-items: flex-start;
+}
+
+/* Kolom Kiri */
+.booking-form-section {
+    flex: 2;
+    /* Kolom kiri lebih lebar */
+}
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    height: 56px;
+    padding: 0 15px;
+    border-radius: 12px;
+    border: 2px solid #E6E6E6;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group textarea {
+    height: auto;
+    padding-top: 15px;
+    resize: vertical;
+    min-height: 20px; /* ATUR TINGGI SESUAI KEINGINAN ANDA DI SINI */
+}
+
+.form-group small {
+    font-size: 12px;
+    color: #A3A3A3;
+    margin-top: 8px;
+}
+
+.btn-outline {
+    width: 100%;
+    height: 35px;
+    background: white;
+    border: 2px solid #118AEC;
+    color: #118AEC;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.rental-summary-section {
+    margin-top: 50px;
+}
+
+.rental-summary-section h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.rental-summary-section input[readonly] {
+    background: #f5f5f5;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Kolom Kanan */
+.cost-summary-section {
+    flex: 1;
+    position: sticky;
+    top: 30px;
+}
+
+.cost-summary-card {
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #E6E6E6;
+    padding: 20px;
+}
+
+.cost-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin: 15px 0;
+}
+
+.cost-item span {
+    color: #A3A3A3;
+}
+
+.cost-item strong {
+    font-size: 14px;
+    color: #333333;
+}
+
+.cost-item.total strong {
+    font-size: 16px;
+}
+
+.cost-summary-card hr {
+    border: none;
+    height: 1px;
+    background-color: #D9D9D9;
+    margin: 10px 0;
+}
+
+.btn-submit-rental {
+    display: block; /* PENTING: Agar link bisa diatur lebar & tingginya */
+    width: 100%;
+    height: 56px;
+    margin-top: 15px;
+    background: #FF5353;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center; /* Menengahkan teks secara horizontal */
+    text-decoration: none; /* Menghilangkan garis bawah link */
+    line-height: 56px; /* Trik untuk menengahkan teks secara vertikal */
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit-rental:hover {
+    background-color: #e64a4a; /* Tambahkan efek hover */
+}
+
+.cost-summary-card .terms {
+    font-size: 12px;
+    text-align: center;
+    color: #A3A3A3;
+    line-height: 20px;
+    margin-top: 15px;
+}
+
+/*
+========================================
+  Styling Dropdown Halaman Pemesanan
+========================================
+*/
+
+.booking-form-section .form-group input,.booking-form-section .form-group input,
+.booking-form-section .form-group select {
+    width: 100%; /* Lebar selalu 100% dari kolom grid */
+    height: 56px; /* Tinggi seragam untuk semua */
+    padding: 0 15px;
+    border: 2px solid #E6E6E6;
+    border-radius: 12px;
+    box-sizing: border-box; /* Penting agar ukuran tetap konsisten */
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    background-color: white; /* Pastikan background sama */
+}
+
+/* Pastikan style dropdown kustom tetap berlaku */
+.booking-form-section .form-group select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+/*
+========================================
+  Halaman Menunggu Pembayaran
+========================================
+*/
+.payment-page-container {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.payment-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.payment-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.payment-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+.countdown-timer {
+    font-size: 28px;
+    font-weight: 600;
+    color: #FF5353;
+    margin-bottom: 15px;
+}
+.payment-deadline {
+    font-size: 12px;
+    color: #A3A3A3;
+    line-height: 20px;
+}
+.payment-deadline strong {
+    color: #888;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+.detail-row label {
+    display: block;
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 5px;
+}
+.detail-row strong {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+}
+.detail-row span {
+    font-size: 12px;
+    color: #A3A3A3;
+}
+.btn-copy {
+    background: none;
+    border: none;
+    color: #118AEC;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+
+.payment-details-box {
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #D9D9D9;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.payment-details-box .detail-row:first-child {
+    padding-top: 0;
+}
+.payment-details-box .detail-row:last-of-type { /* Pilih row terakhir sebelum divider */
+    padding-bottom: 20px; /* Tambah padding agar ada ruang sebelum border */
+    border-bottom: 1px solid #D9D9D9; /* Cukup satu garis sebagai pembatas */
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.detail-row label {
+    display: block;
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 5px;
+}
+.detail-row strong {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+}
+.detail-row span {
+    font-size: 12px;
+    color: #A3A3A3;
+}
+.btn-copy {
+    background: none;
+    border: none;
+    color: #118AEC;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.payment-divider {
+    border: none;
+    height: 1px;
+    background-color: #D9D9D9;
+    margin: 15px 0;
+}
+
+.payment-info {
+    font-size: 10px;
+    line-height: 20px;
+}
+.payment-info h4 {
+    margin: 0 0 10px 0;
+    font-size: 11px;
+}
+.payment-info ul {
+    padding-left: 18px;
+    margin: 0;
+    color: #555;
+}
+
+.payment-actions {
+    display: flex; /* Gunakan flexbox untuk menata tombol */
+    gap: 10px; /* Jarak antar tombol */
+    width: 100%; /* Pastikan kontainer mengambil lebar penuh */
+    margin-top: 30px;
+    align-items: center;
+}
+
+/* Style spesifik untuk tombol di HALAMAN PEMBAYARAN */
+.payment-actions .btn {
+    flex: 1; /* PENTING: Membuat kedua tombol berbagi lebar secara merata */
+    height: 30px;
+    font-size: 12px;
+}
+
+/* Style dasar untuk SEMUA tombol (baik <a> maupun <button>) */
+/* Kita buat lebih umum agar bisa dipakai di tempat lain */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    border-radius: 12px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* Style untuk tombol utama (biru) */
+.btn-primary {
+    background-color: #118AEC;
+    border-color: #118AEC;
+    color: white;
+    width: 220px;
+    height: 47px;
+}
+.btn-primary:hover {
+    background-color: #0d73c7;
+    border-color: #0d73c7;
+}
+
+/* Style untuk tombol outline (garis luar) */
+.btn-outline {
+    background-color: white;
+    border-color: #118AEC;
+    color: #118AEC;
+}
+.btn-outline:hover {
+    background-color: #118AEC;
+    color: white;
+}
+
+.payment-instructions {
+    width: 100%;
+    max-width: 400px;
+    font-size: 10px;
+    line-height: 25px;
+}
+.payment-instructions h3 { font-size: 14px; }
+.payment-instructions h4 { font-size: 12px; margin: 15px 0 5px 0; }
+.payment-instructions ol { padding-left: 20px; }
+
+/* Style untuk input yang disabled di ringkasan */
+.rental-summary-section input:disabled {
+    background-color: #f5f5f5;
+    color: #555;
+    font-weight: 500;
+    cursor: not-allowed; /* Menunjukkan input tidak bisa di-klik */
+    border-color: #eee;
+}
+/*
+========================================
+  Styling Upload File Kustom v2 (Dropzone)
+========================================
+*/
+#upload-proof-modal .modal-content {
+    max-width: 500px; /* Sesuaikan lebar modal */
+}
+
+/* Sembunyikan input file asli */
+#bukti_pembayaran {
+    display: none;
+}
+
+.file-upload-dropzone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #A3A3A3;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.file-upload-dropzone:hover {
+    background-color: #f9f9f9;
+}
+
+#upload-prompt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.upload-icon {
+    margin-top: 50px;
+    width: 90px; 
+    height: 90px;
+    opacity: 0.5;
+}
+
+.upload-text {
+    display: block;
+    color: #A3A3A3;
+}
+
+/* Untuk preview gambar */
+.image-preview {
+    display: none; /* Sembunyi secara default */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pastikan gambar memenuhi area tanpa distorsi */
+}
+
+/* Tombol Aksi */
+.form-actions-vertical {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: #A3A3A3;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+}
+
+/*
+========================================
+  Halaman Terima Kasih Pembayaran
+========================================
+*/
+.payment-thankyou-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    border: 1px solid #eee;
+}
+
+.payment-thankyou-card h2 {
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.payment-thankyou-card p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.thankyou-info {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+.thankyou-info strong {
+    display: block;
+    font-size: 14px;
+    color: #888;
+}
+.thankyou-info span {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/*
+========================================
+  User Dropdown di Header
+========================================
+*/
+.user-dropdown {
+    position: relative; /* Diperlukan agar dropdown-menu bisa diposisikan */
+}
+
+.user-dropdown .dropdown-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.user-dropdown .dropdown-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.user-dropdown .arrow-down {
+    font-size: 20px;
+}
+
+.user-dropdown .dropdown-menu {
+    display: none; /* Sembunyi secara default */
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 10px;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 8px 0;
+    z-index: 100;
+}
+
+.user-dropdown .dropdown-menu.show {
+    display: block;
+}
+
+.user-dropdown .dropdown-item {
+    display: block;
+    width: 80%;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+.user-dropdown .dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown-divider {
+    height: 1px;
+    margin: 8px 0;
+    overflow: hidden;
+    background-color: #e9ecef;
+    border: 0;
+}
+
+.profile-document-image {
+    max-width: 200px;
+    max-height: 300px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.no-image {
+    font-size: 14px;
+    color: #888;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    background-color: #118AEC;
+    color: white;
+    border-color: #118AEC;
+}
+
+.btn-secondary {
+    background-color: #e9ecef;
+    color: #495057;
+    border-color: #e9ecef;
+}
+
+/*
+========================================
+  Halaman Riwayat Sewa (User)
+========================================
+*/
+
+/* Menggunakan kembali style dari admin */
+.page-container .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.page-container .page-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+.page-container .data-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+.page-container .data-card-body {
+    overflow-x: auto;
+}
+.page-container .data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.page-container .data-table th, 
+.page-container .data-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+.page-container .data-table th {
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+}
+.page-container .action-cell {
+    width: 120px;
+}
+.page-container .btn-icon {
+    padding: 20px; /* Atur padding */
+    width: 1px;  /* Lebar eksplisit */
+    height: 1px; /* Tinggi eksplisit */
+    border-radius: 50%; /* Bentuk lingkaran */
+    background-color: #f5f5f5;
+    color: #555;
+    transition: all 0.2s ease;
+    display: inline-flex; /* Penting untuk centering */
+    justify-content: center; /* Pusatkan horizontal */
+    align-items: center; /* Pusatkan vertikal */
+    text-decoration: none; /* Pastikan tidak ada underline */
+}
+.page-container .btn-icon:hover {
+    background-color: #e0e0e0;
+}
+.page-container .btn-icon i {
+    font-size: 15px;
+    line-height: 2; /* Hapus spasi ekstra di sekitar ikon */
+}
+
+/* Jika ada spesifik style untuk btn-primary pada ikon, pastikan tidak menimpa lebar/tinggi */
+.btn.btn-primary.btn-icon { /* Pastikan ini tidak mengganggu */
+    background-color: #118AEC; /* Atau warna primary Anda */
+    color: white;
+}
+
+/*
+========================================
+  Halaman Pengaturan Profil
+========================================
+*/
+.profile-page-container {
+    padding: 40px 320px;
+    max-width: 1116px;
+    margin: auto;
+}
+
+.profile-header {
+    margin-bottom: 40px;
+}
+.profile-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+.profile-header p {
+    font-size: 18px;
+    color: #A3A3A3;
+    margin-top: 5px;
+}
+
+.profile-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+    margin-bottom: 50px;
+}
+
+.profile-form-grid .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-form-grid .form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    height: 35px;
+}
+
+.profile-form-grid .form-group input,
+.profile-form-grid .form-group select {
+    height: 56px;
+    padding: 0 15px;
+    border: 2px solid #E6E6E6;
+    border-radius: 12px;
+}
+
+.document-preview {
+    width: 99%;
+    height: 300px;
+    border: 2px solid #E6E6E6;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.document-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-form-actions {
+    display: flex;
+    justify-content: space-between; /* Memberi jarak otomatis */
+    gap: 25px; /* Jarak eksplisit antar tombol */
+    width: auto; /* Lebar total kontainer sesuai referensi */
+    margin-top: 50px;
+}
+
+.profile-form-actions .btn {
+    flex: 1;
+    height: 56px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/*
+========================================
+  Halaman Ubah Password
+========================================
+*/
+.password-container {
+    padding: 80px 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Kita pusatkan form-wrapper-nya, bukan semua konten */
+}
+
+.password-container .form-wrapper {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Tambahkan ini untuk mengatur header di dalamnya */
+.password-container .register-header {
+    width: 100%;
+    max-width: 500px;
+    text-align: left; /* Membuat teks rata kiri */
+    margin-bottom: 30px;
+}
+
+/*
+========================================
+  Halaman Tentang Kami
+========================================
+*/
+.about-us-banner {
+    width: 100%;
+    height: 350px;
+}
+.about-us-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-us-container {
+    padding: 40px 125px;
+}
+
+.about-section {
+    margin-bottom: 50px;
+}
+
+.about-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.about-section p,
+.about-section li {
+    font-size: 18px;
+    color: #A3A3A3;
+    line-height: 35px;
+    text-align: justify;
+}
+
+.about-section ul {
+    list-style-position: inside; /* Posisi bullet point */
+    padding-left: 0;
+}

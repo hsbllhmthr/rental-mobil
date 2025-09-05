@@ -1,0 +1,942 @@
+/* CSS untuk Admin Layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', 'General Sans', sans-serif;
+    background-color: #F6F5FA;
+}
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.admin-sidebar {
+    width: 330px; /* Lebar sidebar disesuaikan */
+    background-color: #040F2B;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.sidebar-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 40px 0;
+    text-align: center;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    text-decoration: none;
+    padding: 18px 25px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+    background-color: #1d294a;
+}
+
+.sidebar-nav a.active {
+    background-color: #118AEC;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.sidebar-footer button {
+    width: 100%;
+    padding: 15px;
+    background-color: #e63946;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Main Content Styling */
+.admin-content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto; /* Aktifkan scroll jika konten panjang */
+}
+
+/* Styling untuk ikon di sidebar */
+.sidebar-nav a img {
+    width: 24px;
+    height: 24px;
+}
+
+/*
+========================================
+  Styling untuk Submenu Sidebar
+========================================
+*/
+.sidebar-nav .has-submenu .submenu-toggle {
+    display: flex;
+    justify-content: flex-start; /* UBAH INI agar item menempel di kiri */
+    align-items: center;
+    width: 83%;
+}
+
+.sidebar-nav .has-submenu .arrow-down {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+    margin-left: auto; /* TAMBAHKAN INI untuk mendorong panah ke kanan */
+}
+
+.sidebar-nav .has-submenu.open .arrow-down {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    display: none; /* Sembunyi secara default */
+    padding-left: 40px; /* Indentasi agar terlihat seperti submenu */
+    margin-top: 5px;
+}
+
+.submenu a {
+    padding: 12px 25px; /* Padding lebih kecil untuk item submenu */
+    font-size: 15px; /* Font lebih kecil */
+    margin-bottom: 5px;
+}
+
+/*
+========================================
+  Halaman Tabel Data (CRUD)
+========================================
+*/
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-size: 14px; /* TAMBAHKAN BARIS INI */
+    font-family: 'Poppins', sans-serif; /* Pastikan font juga seragam */
+}
+
+.btn-primary {
+    background-color: #118AEC;
+    color: white;
+}
+.btn-primary svg {
+    width: 16px;
+    height: 16px;
+}
+
+.data-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.data-card-header, .data-card-footer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar input {
+    min-width: 300px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.data-card-body {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.data-table th {
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.action-cell {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-icon {
+    padding: 5px;
+    border-radius: 5px;
+}
+.btn-icon svg {
+    width: 18px;
+    height: 18px;
+}
+.btn-edit { color: #118AEC; }
+.btn-delete { color: #e63946; }
+
+/*
+========================================
+  Halaman Tabel Data (CRUD)
+========================================
+*/
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #118AEC;
+    color: white;
+}
+.btn-primary svg {
+    width: 16px;
+    height: 16px;
+}
+
+.data-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.data-card-header, .data-card-footer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar input {
+    min-width: 300px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.data-card-body {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.data-table th {
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.action-cell {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-icon {
+    padding: 5px;
+    border-radius: 5px;
+}
+.btn-icon svg {
+    width: 18px;
+    height: 18px;
+}
+.btn-edit { color: #118AEC; }
+.btn-delete { color: #e63946; }
+
+.pagination {
+    display: flex;
+}
+.pagination a {
+    padding: 8px 15px;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #555;
+}
+.pagination a.active {
+    background-color: #118AEC;
+    color: white;
+    border-color: #118AEC;
+}
+.pagination a.disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+/*
+========================================
+  Styling Modal Pop-up Admin
+========================================
+*/
+.modal-overlay {
+    display: none; /* Sembunyi secara default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease;
+    
+    /* --- PERUBAHAN DI SINI --- */
+    max-height: 90vh; /* 1. Batasi tinggi maksimal pop-up */
+    display: flex; /* 2. Aktifkan flexbox */
+    flex-direction: column; /* 3. Atur item di dalamnya secara vertikal */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.close-button {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-button:hover {
+    color: black;
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto; /* 4. PENTING: Membuat bagian ini bisa di-scroll */
+}
+
+.modal-body .form-group {
+    margin-bottom: 20px;
+}
+.modal-body .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.modal-body .form-group input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+}
+.btn-secondary {
+    background-color: #ddd;
+    color: #333;
+}
+
+/* Styling untuk notifikasi */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+.form-wrapper {
+    background: white; /* Beri latar belakang putih pada form itu sendiri */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.form-wrapper .form-group {
+    margin-bottom: 20px;
+}
+
+.form-wrapper .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-wrapper .form-group input,
+.form-wrapper .form-group input,
+.form-wrapper .form-group select,
+.form-wrapper .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- TAMBAHKAN BLOK BARU INI UNTUK DROPDOWN KUSTOM --- */
+.form-wrapper .form-group select {
+    /* 1. Sembunyikan panah bawaan browser */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* 2. Tambahkan panah kustom sebagai background */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+
+    /* 3. Atur posisi panah (geser ke kiri) dan beri ruang padding */
+    background-position: right 15px center;
+    padding-right: 40px; /* Ruang agar teks tidak menimpa panah */
+}
+
+.form-wrapper .form-group textarea {
+    resize: vertical;
+}
+
+/* Styling untuk grup tombol aksi di form */
+.form-actions {
+    display: flex;
+    justify-content: flex-end; /* Mendorong tombol ke kanan */
+    gap: 10px; /* Jarak antar tombol */
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 0px solid #eee; /* Garis pemisah */
+}
+
+.btn-secondary {
+    background-color: #e9ecef;
+    color: #495057;
+    border-color: #e9ecef;
+}
+.btn-secondary:hover {
+    background-color: #ced4da;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Lebih responsif */
+    gap: 15px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee; /* Tambahkan border tipis */
+}
+
+.checkbox-item {
+    position: relative; /* Untuk positioning elemen kustom */
+    display: block;
+    padding-left: 30px; /* Ruang untuk checkbox kustom */
+    margin-bottom: 8px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Sembunyikan checkbox bawaan browser */
+.checkbox-item input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Buat span kustom sebagai "checkbox" */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+/* Gaya saat checkbox dihover */
+.checkbox-item:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* Gaya saat checkbox tercentang */
+.checkbox-item input:checked ~ .checkmark {
+    background-color: #2196F3; /* Warna biru yang menarik */
+}
+
+/* Buat "centang" / ikon saat tercentang */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none; /* Sembunyikan secara default */
+}
+
+/* Tampilkan centang saat checkbox tercentang */
+.checkbox-item input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Gaya untuk centang */
+.checkbox-item .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Sembunyikan ringkasan sewa secara default */
+.rental-summary-section {
+    display: none;
+    margin-top: 50px;
+}
+
+/* Tampilkan ringkasan saat class 'show' ditambahkan oleh JavaScript */
+.rental-summary-section.show {
+    display: block;
+}
+
+.table-image {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* Styling untuk Detail Pengguna di Pop-up */
+.user-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-item label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.detail-item span {
+    font-size: 15px;
+    color: #333;
+}
+
+.detail-item-full {
+    grid-column: 1 / -1;
+}
+
+.user-document-images {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.user-document-images div p {
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    margin: 0 0 5px 0;
+}
+
+.user-document-images img {
+    width: 200px;  /* Atur lebar tetap */
+    height: 120px; /* Atur tinggi tetap */
+    object-fit: cover; /* Penting: Potong gambar agar pas tanpa merusak rasio aspek */
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+.status-waiting {
+    background-color: #fff0c2;
+    color: #a67c00;
+}
+
+/*
+========================================
+  Styling untuk Status Dropdown
+========================================
+*/
+.status-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.status-badge.dropdown-toggle {
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dropdown-menu {
+    display: none; /* Sembunyi secara default */
+    position: absolute;
+    z-index: 10;
+    min-width: 160px;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 5px 0;
+    margin-top: 5px;
+}
+
+/* Class 'show' akan ditambahkan oleh JavaScript */
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+
+.status-cancelled {
+    background-color: #f8d7da; /* Warna latar merah muda */
+    color: #721c24; /* Warna teks merah tua */
+}
+
+.dropdown-item-disabled {
+    padding: 10px 15px;
+    color: #999;
+    font-size: 14px;
+}
+
+/* Styling untuk Detail Sewa di Pop-up */
+.sewa-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sewa-details-list .detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.sewa-details-list .detail-item:last-child {
+    border-bottom: none;
+}
+
+.sewa-details-list .detail-item label {
+    font-size: 14px;
+    color: #888;
+}
+
+.sewa-details-list .detail-item span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    text-align: right;
+}
+
+.bukti-pembayaran-img {
+    max-width: 450px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-top: 20px;
+}
+.bukti-pembayaran-img:hover {
+    transform: scale(1.05);
+}
+.link-to-detail {
+    color: #118AEC;
+    font-weight: 500;
+    text-decoration: none;
+}
+.link-to-detail:hover {
+    text-decoration: underline;
+}
+
+.lightbox-overlay {
+    display: none; /* Sembunyi secara default */
+    position: fixed;
+    z-index: 2000; /* Pastikan di lapisan paling atas */
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80vh;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lightbox-close:hover {
+    color: #bbb;
+}
+
+.status-completed {
+    background-color: #e2e3e5; /* Warna latar abu-abu */
+    color: #383d41;      /* Warna teks abu-abu tua */
+}
+
+.status-paid {
+    background-color: #d4edda; /* Warna latar hijau muda */
+    color: #155724;      /* Warna teks hijau tua */
+}
+
+/*
+========================================
+  Styling Halaman Biaya Driver
+========================================
+*/
+.driver-fee-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: auto; /* Batasi lebar agar tidak terlalu besar */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.driver-fee-card .form-group {
+    margin-bottom: 20px;
+}
+
+.driver-fee-card .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.driver-fee-card .form-group input {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.driver-fee-card .form-actions {
+    display: flex;
+    justify-content: flex-end; /* Tombol di sebelah kanan */
+    margin-top: 20px;
+}
+
+/*
+========================================
+  Styling Filter Laporan
+========================================
+*/
+.filter-form-layout {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    background-color: #fff; /* Tambahkan latar belakang putih */
+    padding: 25px; /* Tambahkan padding */
+    border-radius: 12px; /* Tambahkan sudut bulat */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Tambahkan bayangan */
+    border: 1px solid #f0f0f0;
+}
+
+.filter-form-layout .form-group {
+    flex: 1;
+}
+
+.filter-form-layout .form-actions {
+    flex-shrink: 0;
+}
+
+/* Menyeragamkan style input tanggal */
+.filter-form-layout input[type="date"] {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.filter-form-layout .form-actions .btn-primary {
+    height: 50px; /* Samakan tingginya dengan input tanggal */
+    /* Pastikan padding tidak mengganggu tinggi */
+    padding: 10px 20px; 
+}
+
+.filter-form-layout .form-group label {
+    display: block; /* Pastikan label adalah block */
+    margin-bottom: 8px; /* Atur jarak yang Anda inginkan di sini */
+}
+
+/* Styling untuk footer kartu data (termasuk tombol cetak) */
+.data-card-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
