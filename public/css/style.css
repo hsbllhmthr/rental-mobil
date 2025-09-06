@@ -2035,3 +2035,33 @@ a.card-link {
     overflow: hidden;
     height: 300px;
 }
+
+/*
+========================================
+  Halaman Statis (Syarat & Ketentuan)
+========================================
+*/
+.static-page-header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.static-page-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.static-page-content h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.static-page-content p, .static-page-content li {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+}

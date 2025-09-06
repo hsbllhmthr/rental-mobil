@@ -37,6 +37,7 @@
         <option value="4" {{ request('kapasitas') == 4 ? 'selected' : '' }}>4 Orang</option>
         <option value="5" {{ request('kapasitas') == 5 ? 'selected' : '' }}>5 Orang</option>
         <option value="7" {{ request('kapasitas') == 7 ? 'selected' : '' }}>7 Orang</option>
+        <option value="8" {{ request('kapasitas') == 8 ? 'selected' : '' }}>8 Orang</option>
     </select>
 
     <select name="transmisi">

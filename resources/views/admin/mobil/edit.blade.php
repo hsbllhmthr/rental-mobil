@@ -59,10 +59,17 @@
             <label for="tahun">Tahun Registrasi</label>
             <input type="number" id="tahun" name="tahun" value="{{ old('tahun', $mobil->tahun) }}" required>
         </div>
-        <div class="form-group">
-            <label for="kapasitas">Kapasitas Orang</label>
-            <input type="number" id="kapasitas" name="kapasitas" value="{{ old('kapasitas', $mobil->kapasitas) }}" required>
-        </div>
+       <div class="form-group">
+    <label for="kapasitas">Kapasitas Orang</label>
+    <select id="kapasitas" name="kapasitas" required>
+        <option value="">Pilih Kapasitas</option>
+        <option value="2" {{ old('kapasitas', $mobil->kapasitas) == 2 ? 'selected' : '' }}>2 Orang</option>
+        <option value="4" {{ old('kapasitas', $mobil->kapasitas) == 4 ? 'selected' : '' }}>4 Orang</option>
+        <option value="5" {{ old('kapasitas', $mobil->kapasitas) == 5 ? 'selected' : '' }}>5 Orang</option>
+        <option value="7" {{ old('kapasitas', $mobil->kapasitas) == 7 ? 'selected' : '' }}>7 Orang</option>
+        <option value="8" {{ old('kapasitas', $mobil->kapasitas) == 8 ? 'selected' : '' }}>8 Orang</option>
+    </select>
+</div>
         <div class="form-group">
             <label for="transmisi">Transmisi</label>
             <select id="transmisi" name="transmisi" required>
