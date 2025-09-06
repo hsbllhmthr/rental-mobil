@@ -1125,7 +1125,7 @@ a.card-link {
 
 .btn-outline {
     width: 100%;
-    height: 35px;
+    height: 60px;
     background: white;
     border: 2px solid #118AEC;
     color: #118AEC;
@@ -1920,4 +1920,118 @@ a.card-link {
 .about-section ul {
     list-style-position: inside; /* Posisi bullet point */
     padding-left: 0;
+}
+
+/* Styling untuk Filter Checkbox */
+.filter-group {
+    flex: 1;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.checkbox-filter-group {
+    display: flex;
+    gap: 15px;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #E6E6E6;
+    height: 33px;
+}
+
+.checkbox-filter-group .checkbox-item {
+    display: flex;
+    align-items: center;
+}
+.checkbox-filter-group .checkbox-item input {
+    margin-right: 8px;
+}
+.checkbox-filter-group .checkbox-item label {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.availability-message {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: none; /* Sembunyi sampai ada pesan */
+}
+.availability-message.checking {
+    display: block;
+    background-color: #e2e3e5;
+    color: #383d41;
+}
+.availability-message.available {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+}
+.availability-message.unavailable {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/*
+========================================
+  Halaman Kontak
+========================================
+*/
+/* Hapus layout flex lama */
+.contact-layout {
+    /* Properti flex dihapus dari sini */
+}
+
+.contact-form-section {
+    max-width: 600px; /* Batasi lebar form agar tidak terlalu panjang */
+    margin-bottom: 50px;
+}
+
+/* ... (style untuk .contact-form tetap sama) ... */
+
+/* Layout Baru untuk Bagian Bawah */
+.contact-bottom-layout {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.contact-info-section {
+    flex: 1; /* Kolom info mengambil 1 bagian */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+.contact-item i {
+    font-size: 20px;
+    color: #118AEC;
+    margin-top: 5px;
+}
+.contact-item strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.contact-item span {
+    color: #555;
+}
+
+.map-section {
+    flex: 2; /* Kolom peta mengambil 2 bagian (lebih lebar) */
+    border-radius: 12px;
+    overflow: hidden;
+    height: 300px;
 }

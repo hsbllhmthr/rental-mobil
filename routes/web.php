@@ -36,7 +36,10 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
 Route::get('/rental/{mobil}', [RentalController::class, 'create'])->middleware('auth')->name('rental.create');
 
+Route::get('/kontak', [HomeController::class, 'kontak'])->name('kontak');
+
 Route::middleware('auth')->group(function () {
+    Route::post('/cek-ketersediaan/{mobil}', [RentalController::class, 'cekKetersediaan'])->name('rental.cek_ketersediaan');
     Route::get('/riwayat-sewa', [ProfileController::class, 'riwayatSewa'])->name('riwayat.sewa');
     Route::get('/password/edit', [ProfileController::class, 'editPassword'])->name('password.edit');
     Route::put('/password', [ProfileController::class, 'updatePassword'])->name('password.update');

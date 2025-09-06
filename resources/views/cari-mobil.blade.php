@@ -64,12 +64,22 @@
     </select>
 
     {{-- TAMBAHKAN KEMBALI DROPDOWN INI --}}
-    <select name="fitur">
-        <option value="">Pilih Fitur Tambahan</option>
-        <option value="GPS" {{ request('fitur') == 'GPS' ? 'selected' : '' }}>GPS</option>
-        <option value="Bluetooth" {{ request('fitur') == 'Bluetooth' ? 'selected' : '' }}>Bluetooth</option>
-        <option value="Parking Camera" {{ request('fitur') == 'Parking Camera' ? 'selected' : '' }}>Parking Camera</option>
-    </select>
+    <div class="filter-group">
+        <div class="checkbox-filter-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="fitur-gps" name="fitur[]" value="GPS" {{ in_array('GPS', request('fitur', [])) ? 'checked' : '' }}>
+                <label for="fitur-gps">GPS</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="fitur-bluetooth" name="fitur[]" value="Bluetooth" {{ in_array('Bluetooth', request('fitur', [])) ? 'checked' : '' }}>
+                <label for="fitur-bluetooth">Bluetooth</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="fitur-kamera" name="fitur[]" value="Parking Camera" {{ in_array('Parking Camera', request('fitur', [])) ? 'checked' : '' }}>
+                <label for="fitur-kamera">Camera</label>
+            </div>
+        </div>
+    </div>
 </div>
         </form>
     </div>

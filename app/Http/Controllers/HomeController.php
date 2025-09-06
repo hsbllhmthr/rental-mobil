@@ -43,8 +43,12 @@ class HomeController extends Controller
     if ($request->filled('tipe_mobil')) {
         $query->where('tipe_mobil', $request->tipe_mobil);
     }
-    if ($request->filled('fitur')) {
-        $query->whereJsonContains('aksesoris', $request->fitur);
+    if ($request->filled('fitur') && is_array($request->fitur)) {
+        // Loop melalui setiap fitur yang dipilih
+        foreach ($request->fitur as $fitur) {
+            // Tambahkan syarat WHERE untuk setiap fitur
+            $query->whereJsonContains('aksesoris', $fitur);
+        }
     }
 
     // Eksekusi query dengan pagination
@@ -63,6 +67,11 @@ class HomeController extends Controller
 public function tentangKami()
 {
     return view('tentang-kami');
+}
+
+public function kontak()
+{
+    return view('kontak');
 }
 
 

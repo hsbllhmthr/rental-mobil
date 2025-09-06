@@ -21,7 +21,7 @@
                     <li><a href="{{ route('home') }}">Beranda</a></li>
                     <li><a href="{{ route('mobil.search') }}">Cari Mobil</a></li>
                     <li><a href="{{ route('tentang.kami') }}">Tentang Kami</a></li>
-                    <li><a href="#">Kontak</a></li>
+                    <li><a href="{{ route('kontak') }}">Kontak</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
@@ -70,17 +70,26 @@
                         <li><a href="{{ route('home') }}">Beranda</a></li>
                         <li><a href="{{ route('mobil.search') }}">Cari Mobil</a></li>
                         <li><a href="{{ route('tentang.kami') }}">Tentang Kami</a></li>
-                        <li><a href="#">Kontak</a></li>
+                        <li><a href="{{ route('kontak') }}">Kontak</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Kontak Informasi</h3>
-                    <ul>
-                        <li class="contact-item"><strong>Telepon</strong><span>+62 813-5581-1336</span></li>
-                        <li class="contact-item"><strong>Alamat Email</strong><span>trimanunggala@gmail.com</span></li>
-                        <li class="contact-item"><strong>Alamat</strong><span>Tamalanrea, Makassar City, South Sulawesi, 90245</span></li>
-                    </ul>
-                </div>
+                <h3>Kontak Informasi</h3>
+                <ul class="contact-list">
+                    <li>
+                        <strong>Telepon</strong>
+                        <span>+62 813-5581-1336</span>
+                    </li>
+                    <li>
+                        <strong>Alamat Email</strong>
+                        <span>trimanunggala@gmail.com</span>
+                    </li>
+                    <li>
+                        <strong>Alamat</strong>
+                        <span>Tamalanrea, Makassar City, South Sulawesi, 90245</span>
+                    </li>
+                </ul>
+            </div>
                 <div class="footer-column">
                     <h3>Social Media</h3>
                     <div class="social-icons">

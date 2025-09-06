@@ -89,4 +89,35 @@ class RentalController extends Controller
 return redirect()->back();
 
 }
+
+    public function cekKetersediaan(Request $request, Mobil $mobil)
+    {
+        // Validasi input tanggal
+        $data = $request->validate([
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
+        ]);
+
+        // Query untuk mencari rental yang bentrok
+        $isBooked = Rental::where('mobil_id', $mobil->id)
+            ->whereIn('status', ['menunggu_pembayaran', 'menunggu_konfirmasi', 'sudah_dibayar'])
+            ->where(function ($query) use ($data) {
+                $query->where('tanggal_mulai', '<=', $data['end_date'])
+                    ->where('tanggal_selesai', '>=', $data['start_date']);
+            })
+            ->exists(); // Cukup cek apakah ada data yang cocok
+
+        if ($isBooked) {
+            return response()->json([
+                'tersedia' => false,
+                'pesan' => 'Mobil tidak tersedia pada rentang tanggal tersebut. Silakan pilih tanggal lain.'
+            ]);
+        }
+
+        return response()->json([
+            'tersedia' => true,
+            'pesan' => 'Mobil tersedia! Silakan lanjutkan pemesanan.'
+        ]);
+    }
+
 }
