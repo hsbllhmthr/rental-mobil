@@ -54,11 +54,10 @@
             </div>
             
             <div class="payment-actions">
-                <a href="#" class="btn btn-outline">Cek Status Pembayaran</a>
                 <a href="#" class="btn btn-primary" 
                    data-modal-target="#upload-proof-modal"
                    data-action="{{ route('rental.upload_proof', $rental->id) }}">
-                   Unggah Bukti Pembayaran
+                   Unggah Pembayaran
                 </a>
             </div>
         </div>
@@ -75,7 +74,7 @@
                 <strong>Kode Sewa Anda:</strong>
                 <span>TRX{{ str_pad($rental->id, 5, '0', STR_PAD_LEFT) }}</span>
             </div>
-            <a href="{{ route('home') }}" class="btn btn-primary" style="margin-top: 20px;">Kembali ke Beranda</a>
+            <a href="{{ route('home') }}" class="btn btn-secondary" style="margin-top: 20px;">Kembali ke Beranda</a>
         </div>
     @endif
 

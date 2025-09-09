@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Rental Mobil Tri Manunggala')</title>
+    
+    {{-- Include PWA Meta Tags --}}
+    <x-pwa-head />
     
     {{-- Memanggil file CSS kustom Anda --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -14,9 +18,23 @@
 
     <div class="page-container">
         
+        {{-- PWA Install Button (Optional) --}}
+        <div id="pwa-install-container" style="display: none;">
+            <button id="pwa-install-btn" class="fixed bottom-20 right-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition-colors z-50" style="z-index: 1000;">
+                📱 Install App
+            </button>
+        </div>
+        
         {{-- HEADER KUSTOM ANDA --}}
+        {{-- HEADER DENGAN MENU HAMBURGER --}}
         <header class="header">
-            <nav class="nav-menu">
+            {{-- Logo atau Brand Name --}}
+            <div class="brand-logo">
+                <a href="{{ route('home') }}">Tri Manunggala</a>
+            </div>
+
+            {{-- Desktop Navigation (tampil di desktop) --}}
+            <nav class="nav-menu desktop-nav">
                 <ul>
                     <li><a href="{{ route('home') }}">Beranda</a></li>
                     <li><a href="{{ route('mobil.search') }}">Cari Mobil</a></li>
@@ -25,33 +43,109 @@
                     <li><a href="{{ route('syarat.ketentuan') }}">Syarat & Ketentuan</a></li>
                 </ul>
             </nav>
-            <div class="auth-buttons">
+
+            {{-- Desktop Auth Buttons --}}
+            <div class="auth-buttons desktop-auth">
                 @auth
-                {{-- Tampilan Jika User Sudah Login ---}}
-                <div class="user-dropdown">
-                    <button type="button" class="dropdown-toggle">
-                        {{ Auth::user()->name }}
-                        <span class="arrow-down">&#9662;</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a href="{{ route('profile.edit') }}" class="dropdown-item">Pengaturan Profil</a>
-                        <a href="{{ route('password.edit') }}" class="dropdown-item">Ubah Password</a>
-                        <a href="{{ route('riwayat.sewa') }}" class="dropdown-item">Riwayat Sewa</a>
-                        <hr class="dropdown-divider">
-                        {{-- Tombol Logout dipindahkan ke sini --}}
-                        <form method="POST" action="{{ route('logout') }}" style="margin:0;">
-                            @csrf
-                            <button type="submit" class="dropdown-item">Keluar</button>
-                        </form>
+                    {{-- Dropdown Pengguna --}}
+                    <div class="user-dropdown">
+                        <button type="button" class="dropdown-toggle">
+                            {{ Auth::user()->name }}
+                            <span class="arrow-down">&#9662;</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="{{ route('profile.edit') }}" class="dropdown-item">Pengaturan Profil</a>
+                            <a href="{{ route('password.edit') }}" class="dropdown-item">Ubah Password</a>
+                            <a href="{{ route('riwayat.sewa') }}" class="dropdown-item">Riwayat Sewa</a>
+                            <hr class="dropdown-divider">
+                            <form method="POST" action="{{ route('logout') }}" style="margin:0;">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Keluar</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
                 @else
-                    {{-- Tampilan Jika User Belum Login (Tamu) --}}
                     <a href="{{ route('register') }}">Daftar</a>
                     <a href="#" class="btn-login" data-modal-target="#login-modal">Masuk</a>
                 @endauth
             </div>
+
+            {{-- Hamburger Menu Button (tampil di mobile) --}}
+            <button class="hamburger-menu" id="hamburger-toggle">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </header>
+
+        {{-- Mobile Navigation Overlay --}}
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+            <div class="mobile-nav-content">
+                {{-- Close Button --}}
+                <button class="mobile-nav-close" id="mobile-nav-close">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                {{-- Mobile Navigation Menu --}}
+                <nav class="mobile-nav">
+                    <ul class="mobile-nav-list">
+                        <li><a href="{{ route('home') }}" class="mobile-nav-item">Beranda</a></li>
+                        <li><a href="{{ route('mobil.search') }}" class="mobile-nav-item">Cari Mobil</a></li>
+                        <li><a href="{{ route('tentang.kami') }}" class="mobile-nav-item">Tentang Kami</a></li>
+                        <li><a href="{{ route('kontak') }}" class="mobile-nav-item">Kontak</a></li>
+                        <li><a href="{{ route('syarat.ketentuan') }}" class="mobile-nav-item">Syarat & Ketentuan</a></li>
+                    </ul>
+
+                    {{-- Mobile Auth Section --}}
+                    <div class="mobile-auth-section">
+                        @auth
+                            {{-- User Info --}}
+                            <div class="mobile-user-info">
+                                <div class="mobile-user-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <span class="mobile-user-name">{{ Auth::user()->name }}</span>
+                            </div>
+
+                            {{-- User Menu --}}
+                            <div class="mobile-user-menu">
+                                <a href="{{ route('profile.edit') }}" class="mobile-auth-item">
+                                    <i class="fas fa-user-cog"></i>
+                                    Pengaturan Profil
+                                </a>
+                                <a href="{{ route('password.edit') }}" class="mobile-auth-item">
+                                    <i class="fas fa-lock"></i>
+                                    Ubah Password
+                                </a>
+                                <a href="{{ route('riwayat.sewa') }}" class="mobile-auth-item">
+                                    <i class="fas fa-history"></i>
+                                    Riwayat Sewa
+                                </a>
+                                <form method="POST" action="{{ route('logout') }}" class="mobile-logout-form">
+                                    @csrf
+                                    <button type="submit" class="mobile-auth-item logout-btn">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Keluar
+                                    </button>
+                                </form>
+                            </div>
+                        @else
+                            {{-- Guest Buttons --}}
+                            <div class="mobile-guest-buttons">
+                                <a href="{{ route('register') }}" class="mobile-btn mobile-btn-register">
+                                    <i class="fas fa-user-plus"></i>
+                                    Daftar
+                                </a>
+                                <button class="mobile-btn mobile-btn-login" data-modal-target="#login-modal">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Masuk
+                                </button>
+                            </div>
+                        @endauth
+                    </div>
+                </nav>
+            </div>
+        </div>
 
         {{-- KONTEN UTAMA HALAMAN --}}
         <main>
@@ -66,34 +160,23 @@
                     <p>Penyedia layanan rental mobil terpercaya dengan koleksi kendaraan berkualitas untuk kebutuhan perjalanan Anda.</p>
                 </div>
                 <div class="footer-column">
-                <h3>Menu Utama</h3>
-                <ul>
-                    <li><a href="{{ route('home') }}">Beranda</a></li>
-                    <li><a href="{{ route('mobil.search') }}">Cari Mobil</a></li>
-                    <li><a href="{{ route('tentang.kami') }}">Tentang Kami</a></li>
-                    <li><a href="{{ route('kontak') }}">Kontak</a></li>
-                    <li><a href="{{ route('syarat.ketentuan') }}">Syarat & Ketentuan</a></li>
-                </ul>
+                    <h3>Menu Utama</h3>
+                    <ul class="contact-list">
+                        <li><a href="{{ route('home') }}">Beranda</a></li>
+                        <li><a href="{{ route('mobil.search') }}">Cari Mobil</a></li>
+                        <li><a href="{{ route('tentang.kami') }}">Tentang Kami</a></li>
+                        <li><a href="{{ route('kontak') }}">Kontak</a></li>
+                        <li><a href="{{ route('syarat.ketentuan') }}">Syarat & Ketentuan</a></li>
+                    </ul>
                 </div>
                 <div class="footer-column">
-                <h3>Kontak Informasi</h3>
-                <ul class="contact-list">
-                    <li>
-                        <strong>Telepon</strong>
-                        <br>
-                        <span>+62 813-5581-1336</span>
-                    </li>
-                    <li>
-                        <strong>Alamat Email</strong>
-                        <span>trimanunggala@gmail.com</span>
-                    </li>
-                    <li>
-                        <strong>Alamat</strong>
-                        <br>
-                        <span>Tamalanrea, Makassar City, South Sulawesi, 90245</span>
-                    </li>
-                </ul>
-            </div>
+                    <h3>Kontak Informasi</h3>
+                    <ul class="contact-list">
+                        <li><strong>Telepon</strong><span>+62 813-5581-1336</span></li>
+                        <li><strong>Alamat Email</strong><span>trimanunggala@gmail.com</span></li>
+                        <li><strong>Alamat</strong><span>Tamalanrea, Makassar City, South Sulawesi, 90245</span></li>
+                    </ul>
+                </div>
                 <div class="footer-column">
                     <h3>Social Media</h3>
                     <div class="social-icons">
@@ -116,7 +199,7 @@
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <div class="modal-header">
-                <h1>Selamat Datang di Tri Manunggala Rent</h1>
+                <h1>Selamat Datang di <br> Tri Manunggala Rent</h1>
                 <p>Silahkan Masukkan Alamat Email <br> dan Password Anda</p>
             </div>
             <form action="{{ route('login.submit') }}" method="POST">
@@ -131,7 +214,7 @@
                 </div>
                 <button type="submit" class="btn-login-submit">Masuk</button>
             </form>
-            <p class="form-prompt">Belum Punya Akun ? <a href="{{ route('register') }}" id="register-link">Daftar Disini</a></p>
+            <p class="form-prompt">Belum Punya Akun ? <a href="{{ route('register') }}">Daftar Disini</a></p>
         </div>
     </div>
 
@@ -174,7 +257,8 @@
                    <div class="form-group">
                        <label for="bukti_pembayaran" class="file-upload-dropzone">
                            <div id="upload-prompt">
-                               <img src="{{ asset('images/icons/upload.png') }}" alt="Upload Icon" class="upload-icon">
+                               <img src="{{ asset('images/icons/icon-upload.png') }}" alt="Upload Icon" class="upload-icon">
+                               <span class="upload-text">Klik untuk memilih file atau tarik ke sini</span>
                            </div>
                            <img id="image-preview" src="#" alt="Image Preview" class="image-preview"/>
                        </label>
@@ -188,46 +272,173 @@
            </div>
        </div>
     </div>
+    
+    {{-- Memanggil pop-up detail sewa dari partials --}}
+    @include('partials.detail-sewa-modal')
 
+    {{-- PWA Offline/Online Status Indicator (Optional) --}}
+    <div id="pwa-status-indicator" style="display: none; position: fixed; top: 0; left: 0; right: 0; background: #f59e0b; color: white; text-align: center; padding: 8px; z-index: 9999; font-size: 14px;">
+        <span id="pwa-status-text">Anda sedang offline</span>
+    </div>
 
     {{-- ============================================= --}}
     {{--        KODE JAVASCRIPT YANG TERPUSAT        --}}
     {{-- ============================================= --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-
-                        // --- LOGIKA BARU UNTUK USER DROPDOWN DI HEADER ---
-            const userDropdownToggle = document.querySelector('.user-dropdown .dropdown-toggle');
-            if (userDropdownToggle) {
-                const userDropdownMenu = userDropdownToggle.nextElementSibling;
-                
-                userDropdownToggle.addEventListener('click', function(event) {
-                    event.stopPropagation(); // Mencegah event klik menyebar ke window
-                    userDropdownMenu.classList.toggle('show');
-                });
-
-                // Menutup dropdown jika klik di luar
-                window.addEventListener('click', function(event) {
-                    if (!userDropdownToggle.contains(event.target)) {
-                        userDropdownMenu.classList.remove('show');
-                    }
-                });
-            }
-
-
-            // --- Ambil data dari server (Blade) dan simpan ke variabel JS ---
+            // --- Data dari server (kode yang sudah ada) ---
             const isLoggedIn = JSON.parse('@json(auth()->check())');
             const registrationSuccess = JSON.parse('@json(session()->has("registration_success"))');
 
-            // --- Ambil semua elemen modal yang dibutuhkan ---
+            // --- Elemen modal yang sudah ada ---
             const loginModal = document.getElementById('login-modal');
             const requireLoginModal = document.getElementById('require-login-modal');
             const successModal = document.getElementById('success-modal');
             
-            // --- Logika umum untuk membuka semua modal ---
+            // --- HAMBURGER MENU ELEMENTS ---
+            const hamburgerToggle = document.getElementById('hamburger-toggle');
+            const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+            const mobileNavClose = document.getElementById('mobile-nav-close');
+
+            // --- PWA ELEMENTS ---
+            const pwaInstallContainer = document.getElementById('pwa-install-container');
+            const pwaInstallBtn = document.getElementById('pwa-install-btn');
+            const pwaStatusIndicator = document.getElementById('pwa-status-indicator');
+            const pwaStatusText = document.getElementById('pwa-status-text');
+
+            // --- PWA FUNCTIONS ---
+            function showPwaInstallButton() {
+                if (pwaInstallContainer) {
+                    pwaInstallContainer.style.display = 'block';
+                }
+            }
+
+            function hidePwaInstallButton() {
+                if (pwaInstallContainer) {
+                    pwaInstallContainer.style.display = 'none';
+                }
+            }
+
+            function showPwaStatus(message, isOnline = true) {
+                if (pwaStatusIndicator && pwaStatusText) {
+                    pwaStatusText.textContent = message;
+                    pwaStatusIndicator.style.background = isOnline ? '#10b981' : '#f59e0b';
+                    pwaStatusIndicator.style.display = 'block';
+                    
+                    // Auto hide after 3 seconds
+                    setTimeout(() => {
+                        pwaStatusIndicator.style.display = 'none';
+                    }, 3000);
+                }
+            }
+
+            // --- PWA EVENT LISTENERS ---
+            // Online/Offline status monitoring
+            window.addEventListener('online', () => {
+                showPwaStatus('Koneksi internet tersambung kembali', true);
+            });
+
+            window.addEventListener('offline', () => {
+                showPwaStatus('Anda sedang offline', false);
+            });
+
+            // PWA Install functionality is handled by the pwa-head component script
+            // We just need to show/hide the install button container
+
+            // --- HAMBURGER MENU FUNCTIONS ---
+            function openMobileNav() {
+                if (mobileNavOverlay && hamburgerToggle) {
+                    mobileNavOverlay.classList.add('active');
+                    hamburgerToggle.classList.add('active');
+                    document.body.classList.add('mobile-nav-open');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeMobileNav() {
+                if (mobileNavOverlay && hamburgerToggle) {
+                    mobileNavOverlay.classList.remove('active');
+                    hamburgerToggle.classList.remove('active');
+                    document.body.classList.remove('mobile-nav-open');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            // --- HAMBURGER EVENT LISTENERS ---
+            if (hamburgerToggle) {
+                hamburgerToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (mobileNavOverlay && mobileNavOverlay.classList.contains('active')) {
+                        closeMobileNav();
+                    } else {
+                        openMobileNav();
+                    }
+                });
+            }
+
+            if (mobileNavClose) {
+                mobileNavClose.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    closeMobileNav();
+                });
+            }
+
+            // Tutup mobile nav saat click overlay (bukan content)
+            if (mobileNavOverlay) {
+                mobileNavOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileNavOverlay) {
+                        closeMobileNav();
+                    }
+                });
+            }
+
+            // Tutup mobile nav saat click navigation items
+            document.querySelectorAll('.mobile-nav-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    closeMobileNav();
+                });
+            });
+
+            // Handle mobile auth buttons
+            document.querySelectorAll('.mobile-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (this.getAttribute('data-modal-target')) {
+                        // Untuk tombol login, tutup nav setelah modal terbuka
+                        setTimeout(() => {
+                            closeMobileNav();
+                        }, 150);
+                    } else {
+                        // Untuk tombol register, tutup nav langsung
+                        closeMobileNav();
+                    }
+                });
+            });
+
+            // Tutup mobile nav saat window resize ke desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMobileNav();
+                }
+            });
+
+            // Prevent scroll propagation saat mobile nav terbuka
+            if (mobileNavOverlay) {
+                mobileNavOverlay.addEventListener('touchmove', function(e) {
+                    if (e.target === mobileNavOverlay) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+            }
+
+            // --- KODE MODAL YANG SUDAH ADA (jangan dihapus) ---
+            
+            // Logika umum untuk membuka semua modal
             document.querySelectorAll('[data-modal-target]').forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
+                    
                     const modalId = button.getAttribute('data-modal-target');
                     const modal = document.querySelector(modalId);
                     
@@ -235,16 +446,35 @@
                         // Logika spesifik untuk mengisi action form upload
                         if (modal.id === 'upload-proof-modal') {
                             const form = document.getElementById('upload-proof-form');
-                            if(form) {
-                                form.action = button.dataset.action;
+                            if(form) form.action = button.dataset.action;
+                        }
+                        
+                        // Logika untuk mengisi pop-up DETAIL SEWA
+                        if (modal.id === 'view-sewa-modal') {
+                            modal.querySelector('#view-sewa-kode').innerText = button.dataset.kode || '-';
+                            modal.querySelector('#view-sewa-mobil').innerText = button.dataset.mobil || '-';
+                            modal.querySelector('#view-sewa-mulai').innerText = button.dataset.mulai || '-';
+                            modal.querySelector('#view-sewa-selesai').innerText = button.dataset.selesai || '-';
+                            modal.querySelector('#view-sewa-durasi').innerText = button.dataset.durasi || '-';
+                            modal.querySelector('#view-sewa-penyewa').innerText = button.dataset.penyewa || '-';
+                            modal.querySelector('#view-sewa-total').innerText = button.dataset.total || '-';
+                            modal.querySelector('#view-sewa-status').innerText = button.dataset.status || '-';
+                            
+                            const buktiContainer = modal.querySelector('#view-sewa-bukti-container');
+                            const buktiUrl = button.dataset.bukti;
+                            if (buktiUrl) {
+                                buktiContainer.innerHTML = `<a href="${buktiUrl}" target="_blank"><img src="${buktiUrl}" alt="Bukti Pembayaran" class="bukti-pembayaran-img"></a>`;
+                            } else {
+                                buktiContainer.innerHTML = `<span>Belum ada bukti pembayaran.</span>`;
                             }
                         }
+                        
                         modal.style.display = 'flex';
                     }
                 });
             });
 
-            // --- Logika untuk tombol "Masuk Sekarang" di modal peringatan ---
+            // Logika untuk tombol "Masuk Sekarang" di modal peringatan
             const goToLoginBtn = document.getElementById('go-to-login-btn');
             if (goToLoginBtn && requireLoginModal && loginModal) {
                 goToLoginBtn.addEventListener('click', () => {
@@ -253,24 +483,24 @@
                 });
             }
 
-            // --- Logika untuk tombol RENTAL SEKARANG di halaman detail ---
+            // Logika untuk tombol RENTAL SEKARANG di halaman detail
             document.addEventListener('click', function(event) {
                 if (event.target && event.target.id === 'rental-now-btn') {
                     event.preventDefault();
                     if (!isLoggedIn) {
                         if (requireLoginModal) requireLoginModal.style.display = 'flex';
                     } else {
-                        window.location.href = event.target.href; // Arahkan ke halaman pemesanan
+                        window.location.href = event.target.href;
                     }
                 }
             });
 
-            // --- Logika untuk menampilkan modal sukses ---
+            // Logika untuk menampilkan modal sukses
             if (registrationSuccess && successModal) {
                 successModal.style.display = 'flex';
             }
 
-            // --- Logika untuk preview gambar upload ---
+            // Logika untuk preview gambar upload
             const fileInput = document.getElementById('bukti_pembayaran');
             if (fileInput) {
                 const uploadPrompt = document.getElementById('upload-prompt');
@@ -289,19 +519,35 @@
                 });
             }
 
-            // --- Logika umum untuk menutup semua modal ---
+            // Logika umum untuk menutup semua modal
             document.querySelectorAll('.modal-overlay .close-button, .modal-overlay .close-btn').forEach(button => {
                 button.addEventListener('click', () => {
                     button.closest('.modal-overlay').style.display = 'none';
                 });
             });
+            
             window.addEventListener('click', (event) => {
                 if (event.target.classList.contains('modal-overlay')) {
                     event.target.style.display = 'none';
                 }
             });
+
+            // Logika untuk User Dropdown di Header (Desktop)
+            const userDropdownToggle = document.querySelector('.user-dropdown .dropdown-toggle');
+            if (userDropdownToggle) {
+                const userDropdownMenu = userDropdownToggle.nextElementSibling;
+                userDropdownToggle.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    userDropdownMenu.classList.toggle('show');
+                });
+                window.addEventListener('click', function(event) {
+                    if (!userDropdownToggle.contains(event.target)) {
+                        userDropdownMenu.classList.remove('show');
+                    }
+                });
+            }
         });
-    </script>
+        </script>
     
     @stack('scripts')
     

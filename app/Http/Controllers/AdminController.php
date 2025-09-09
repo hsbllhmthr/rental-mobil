@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use App\Models\Merek;
+use App\Models\Mobil;
+use App\Models\Rental;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -53,7 +57,25 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        return view('admin.dashboard');
+        // Hitung semua data statistik
+        $menungguPembayaran = Rental::where('status', 'menunggu_pembayaran')->count();
+        $menungguKonfirmasi = Rental::where('status', 'menunggu_konfirmasi')->count();
+        $belumDikembalikan = Rental::where('status', 'sudah_dibayar')->count();
+        $totalMerek = Merek::count();
+        $jumlahMobil = Mobil::count();
+        $totalSewa = Rental::count();
+        $totalUser = User::where('role', 'user')->count();
+
+        // Kirim semua data ke view
+        return view('admin.dashboard', compact(
+            'menungguPembayaran',
+            'menungguKonfirmasi',
+            'belumDikembalikan',
+            'totalMerek',
+            'jumlahMobil',
+            'totalSewa',
+            'totalUser'
+        ));
     }
 
     /**

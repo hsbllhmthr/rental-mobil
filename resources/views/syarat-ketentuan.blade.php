@@ -3,9 +3,9 @@
 @section('title', 'Syarat dan Ketentuan')
 
 @section('content')
-    <div class="page-container" style="padding: 40px 125px;">
+    <div class="static-page-container">
         <nav class="breadcrumb">
-            <a href="{{ route('home') }}">Beranda</a> / <span>Syarat dan Ketentuan</span>
+            <a href="{{ route('home') }}">Beranda</a> / <span>Syarat & Ketentuan</span>
         </nav>
 
         <div class="static-page-header">
@@ -21,7 +21,7 @@
 
             <h2>3. Kewajiban Penyewa</h2>
             <p>...</p>
-
+            
             {{-- Lanjutkan dengan semua pasal dan isi syarat ketentuan Anda --}}
         </div>
     </div>

@@ -24,6 +24,10 @@ use App\Http\Controllers\Admin\LaporanController;
 // == HALAMAN PENGGUNA (USER-FACING) ==
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/offline', function () {
+    return view('offline');
+});
+
 Route::get('/syarat-ketentuan', [HomeController::class, 'syaratKetentuan'])->name('syarat.ketentuan');
 
 Route::get('/tentang-kami', [HomeController::class, 'tentangKami'])->name('tentang.kami');

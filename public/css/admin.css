@@ -741,9 +741,9 @@ body, html {
 }
 
 .sewa-details-list .detail-item {
-    display: flex;
+    display: block;
     justify-content: space-between;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     border-bottom: 1px solid #f0f0f0;
 }
 .sewa-details-list .detail-item:last-child {
@@ -753,6 +753,7 @@ body, html {
 .sewa-details-list .detail-item label {
     font-size: 14px;
     color: #888;
+    margin-bottom: 8px;
 }
 
 .sewa-details-list .detail-item span {
@@ -940,3 +941,57 @@ body, html {
     border-color: #545b62;
 }
 
+
+/*
+========================================
+  Statistik Dashboard
+========================================
+*/
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.stat-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.stat-card h2, .stat-card p {
+    margin: 0;
+    padding: 20px 25px;
+    color: white;
+}
+
+.stat-card h2 {
+    font-size: 36px;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.stat-card p {
+    font-size: 16px;
+    padding-top: 0;
+}
+
+.stat-card a {
+    display: block;
+    background: rgba(0,0,0,0.1);
+    padding: 10px 25px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+.stat-card a:hover {
+    background: rgba(0,0,0,0.2);
+}
+
+/* Warna Kartu */
+.stat-card.blue { background-color: #3498db; }
+.stat-card.green { background-color: #2ecc71; }
+.stat-card.orange { background-color: #e67e22; }
+.stat-card.dark-blue { background-color: #34495e; }

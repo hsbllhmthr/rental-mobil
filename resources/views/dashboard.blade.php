@@ -10,7 +10,6 @@
     <section class="car-listing">
         <div class="car-listing-header">
             <h2>Mobil Yang Tersedia Untuk Anda</h2>
-            <a href="#" class="view-all-link">Lihat Semuanya</a>
         </div>
 
         <div class="car-cards-container">

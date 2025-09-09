@@ -3,7 +3,7 @@
 @section('title', 'Riwayat Sewa')
 
 @section('content')
-<div class="page-container" style="padding: 40px 125px;">
+<div class="page-content-wrapper"> 
     <div class="page-header">
         <h1 class="page-title">Riwayat Sewa Anda</h1>
     </div>
@@ -26,29 +26,41 @@
                 <tbody>
                     @forelse ($rentals as $rental)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>TRX{{ str_pad($rental->id, 5, '0', STR_PAD_LEFT) }}</td>
-                        <td>{{ $rental->mobil->merek->nama_merek }} {{ $rental->mobil->nama_mobil }}</td>
-                        <td>{{ $rental->tanggal_mulai->format('d-m-Y') }}</td>
-                        <td>{{ $rental->tanggal_selesai->format('d-m-Y') }}</td>
-                        <td>Rp {{ number_format($rental->total_biaya, 0, ',', '.') }}</td>
-                        <td>
-                            <span class="status-badge status-{{ str_replace('_', '-', $rental->status) }}">
+                        <td data-label="No">{{ $rentals->firstItem() + $loop->index }}</td>
+                        <td data-label="Kode Sewa">TRX{{ str_pad($rental->id, 5, '0', STR_PAD_LEFT) }}</td>
+                        <td data-label="Nama Mobil">{{ $rental->mobil->merek->nama_merek }} {{ $rental->mobil->nama_mobil }}</td>
+                        <td data-label="Tgl. Mulai">{{ $rental->tanggal_mulai->format('d-m-Y') }}</td>
+                        <td data-label="Tgl. Selesai">{{ $rental->tanggal_selesai->format('d-m-Y') }}</td>
+                        <td data-label="Total Biaya">Rp {{ number_format($rental->total_biaya, 0, ',', '.') }}</td>
+                        <td data-label="Status">
+                            @php
+                                $statusClass = 'status-' . str_replace('_', '-', $rental->status);
+                            @endphp
+                            <span class="status-badge {{ $statusClass }}">
                                 {{ ucwords(str_replace('_', ' ', $rental->status)) }}
                             </span>
                         </td>
-                        <td class="action-cell">
-                        <a href="{{ route('rental.waiting', $rental->id) }}" class="btn btn-icon btn-edit" title="Lihat Detail">
-                            <i class="fa-solid fa-eye"></i>
-                        </a>
-                        @if ($rental->status == 'menunggu_pembayaran')
-                            <a href="#" class="btn btn-icon btn-primary" title="Unggah Bukti Bayar"
-                            data-modal-target="#upload-proof-modal"
-                            data-action="{{ route('rental.upload_proof', $rental->id) }}">
-                                <i class="fa-solid fa-upload"></i>
+                        <td data-label="Opsi" class="action-cell">
+                            <a href="#" class="btn btn-icon btn-edit" title="Lihat Detail"
+                               data-modal-target="#view-sewa-modal"
+                               data-kode="TRX{{ str_pad($rental->id, 5, '0', STR_PAD_LEFT) }}"
+                               data-mobil="{{ $rental->mobil->nama_mobil ?? 'Mobil Dihapus' }}"
+                               data-mulai="{{ $rental->tanggal_mulai->format('d-m-Y') }}"
+                               data-selesai="{{ $rental->tanggal_selesai->format('d-m-Y') }}"
+                               data-durasi="{{ $rental->tanggal_selesai->diffInDays($rental->tanggal_mulai) }} Hari"
+                               data-penyewa="{{ $rental->user->name ?? 'User Dihapus' }}"
+                               data-total="Rp {{ number_format($rental->total_biaya, 0, ',', '.') }}"
+                               data-status="{{ ucwords(str_replace('_', ' ', $rental->status)) }}"
+                               data-bukti="{{ $rental->bukti_pembayaran ? asset('storage/' . $rental->bukti_pembayaran) : '' }}">
+                                <i class="fa-solid fa-eye"></i>
                             </a>
-                        @endif
-                    </td>
+
+                            @if ($rental->status == 'menunggu_pembayaran')
+                                <a href="{{ route('rental.waiting', $rental->id) }}" class="btn btn-icon btn-primary" title="Lanjutkan Pembayaran">
+                                    <i class="fa-solid fa-upload"></i>
+                                </a>
+                            @endif
+                        </td>
                     </tr>
                     @empty
                     <tr>
@@ -57,6 +69,14 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+        <div class="data-card-footer">
+            <span class="showing-entries">
+                Showing {{ $rentals->firstItem() }} to {{ $rentals->lastItem() }} of {{ $rentals->total() }} entries
+            </span>
+            <div class="pagination">
+                {{ $rentals->links('vendor.pagination.custom') }}
+            </div>
         </div>
     </div>
 </div>

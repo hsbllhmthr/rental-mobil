@@ -8,20 +8,15 @@ html {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', 'General Sans', sans-serif;
-    /* Menggunakan Poppins sebagai alternatif */
     background-color: #f4f4f4;
-    /* Warna latar belakang halaman agar tidak kosong */
 }
 
 /* Kontainer utama untuk halaman */
 .page-container {
     max-width: 1366px;
-    /* Lebar maksimal sesuai desain */
     margin: auto;
-    /* Pusatkan kontainer */
     background: white;
     position: relative;
-    /* Diperlukan untuk child dengan position absolute */
 }
 
 /* Bagian Header */
@@ -30,13 +25,10 @@ html {
     color: white;
     height: 158px;
     padding: 0 125px;
-    /* Padding kiri dan kanan */
     display: flex;
-    /* Menggunakan Flexbox untuk alignment */
     justify-content: space-between;
-    /* Mendorong item ke sisi berlawanan */
     align-items: center;
-    /* Menengahkan item secara vertikal */
+    position: relative; /* Untuk z-index management */
 }
 
 /* Menu Navigasi */
@@ -44,11 +36,8 @@ html {
     margin: 0;
     padding: 0;
     list-style: none;
-    /* Hapus bullet points */
     display: flex;
-    /* Buat item menu sejajar */
     gap: 45px;
-    /* Jarak antar item menu */
 }
 
 .nav-menu a {
@@ -58,12 +47,11 @@ html {
     font-weight: 200;
 }
 
-/* Tombol Autentikasi (Daftar & Masuk) */
+/* Tombol Autentikasi */
 .auth-buttons {
     display: flex;
     align-items: center;
     gap: 40px;
-    /* Jarak antara "Daftar" dan tombol "Masuk" */
 }
 
 .auth-buttons a {
@@ -78,43 +66,27 @@ html {
     border: 2px solid white;
     border-radius: 12px;
     background-color: transparent;
-    /* Pastikan latar belakang awal transparan */
-
-    /* Tambahkan ini untuk animasi yang mulus */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Tambahkan blok baru ini untuk efek saat hover */
 .auth-buttons .btn-login:hover {
     background-color: white;
-    /* Latar belakang menjadi putih */
     color: #118AEC;
-    /* Warna teks menjadi biru sesuai tema */
 }
 
 /* Bagian Hero Banner */
 .hero-section img {
     width: 100%;
-    /* Lebar gambar memenuhi kontainer */
     height: 768px;
     display: block;
-    /* Hapus spasi ekstra di bawah gambar */
     object-fit: cover;
-    /* Pastikan gambar menutupi area tanpa distorsi */
 }
 
-/*
-========================================
-  Bagian Daftar Mobil (Car Listing) - (Diperbarui)
-========================================
-*/
-
-/* Kontainer untuk seluruh bagian daftar mobil */
+/* Bagian Daftar Mobil */
 .car-listing {
     padding: 80px 125px;
 }
 
-/* Header dari bagian daftar mobil */
 .car-listing-header {
     display: flex;
     justify-content: space-between;
@@ -136,19 +108,13 @@ html {
     text-decoration: none;
 }
 
-/* Kontainer untuk semua kartu mobil */
 .car-cards-container {
     display: flex;
     justify-content: flex-start;
-    /* Diubah agar selalu rata kiri */
     gap: 15px;
     flex-wrap: wrap;
-    /* Pastikan ini ada agar kartu bisa turun ke baris baru */
 }
 
-/* Styling untuk setiap kartu mobil */
-/* Styling untuk setiap kartu mobil */
-/* Styling untuk setiap kartu mobil */
 .car-card {
     background: white;
     border-radius: 12px;
@@ -157,25 +123,13 @@ html {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: flex;
-    /* Menggunakan flexbox untuk layout vertikal */
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* TAMBAHKAN BLOK BARU INI untuk efek saat hover */
 .car-card:hover {
     transform: translateY(-8px);
-    /* Efek kartu sedikit terangkat */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    /* Efek bayangan lebih jelas */
-}
-
-/* TAMBAHKAN BLOK BARU INI untuk efek saat hover */
-.car-card:hover {
-    transform: translateY(-8px);
-    /* Efek kartu sedikit terangkat */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    /* Efek bayangan lebih jelas */
 }
 
 .car-card img.car-image {
@@ -184,7 +138,6 @@ html {
     object-fit: cover;
 }
 
-/* Konten di dalam kartu */
 .car-card-body {
     padding: 20px 30px;
     flex-grow: 1;
@@ -196,11 +149,9 @@ html {
     color: #333333;
     font-size: 20px;
     font-weight: 400;
-    /* Disesuaikan dengan referensi */
     margin: 0 0 10px 0;
 }
 
-/* Styling harga */
 .car-price {
     margin-bottom: 0px;
 }
@@ -217,7 +168,6 @@ html {
     font-weight: 400;
 }
 
-/* Garis pemisah */
 .separator {
     border: none;
     height: 1px;
@@ -225,22 +175,17 @@ html {
     margin-bottom: 20px;
 }
 
-/* Grid untuk spesifikasi mobil */
 .car-specs {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* UBAH JADI 3 KOLOM */
     gap: 1px;
-    /* Jarak antar item spesifikasi */
     row-gap: 20px;
-    /* Tambahkan jarak vertikal antar baris agar lebih rapi */
 }
 
 .spec-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Jarak antara ikon dan teks */
 }
 
 .spec-item img {
@@ -254,12 +199,7 @@ html {
     font-weight: 400;
 }
 
-/*
-========================================
-  Bagian Footer
-========================================
-*/
-
+/* Footer */
 .footer {
     background-color: #1E1E1E;
     color: white;
@@ -270,18 +210,14 @@ html {
     display: flex;
     justify-content: space-between;
     gap: 40px;
-    /* Jarak antar kolom footer */
 }
 
 .footer-column {
     flex: 1;
-    /* Memberi fleksibilitas pada lebar kolom */
 }
 
-/* Kolom pertama: Tentang perusahaan */
 .footer-column.about {
     flex-basis: 10%;
-    /* Beri lebar lebih pada kolom pertama */
 }
 
 .footer-column h3 {
@@ -297,10 +233,8 @@ html {
     line-height: 25px;
     margin: 0;
     color: #dbdbdb;
-    /* Sedikit lebih redup agar tidak terlalu mencolok */
 }
 
-/* Kolom Link & Kontak */
 .footer-column ul {
     list-style: none;
     padding: 0;
@@ -320,10 +254,8 @@ html {
 
 .footer-column a:hover {
     color: #118AEC;
-    /* Warna hover sesuai tema */
 }
 
-/* Kolom Kontak */
 .footer-column .contact-item strong {
     display: block;
     margin-bottom: 5px;
@@ -331,33 +263,21 @@ html {
     font-size: 14px;
 }
 
-/* Kolom Sosial Media */
 .social-icons {
     display: flex;
     gap: 20px;
 }
 
 .social-icons a {
-    /* Anda bisa menambahkan styling untuk ikon di sini */
-    font-size: 24px;
-    /* Contoh jika menggunakan font icon */
-}
-
-.social-icons a {
     color: #dbdbdb;
-    /* Sesuaikan warna ikon dengan link lain */
     font-size: 24px;
     text-decoration: none;
-    /* Hilangkan garis bawah jika ada */
     transition: color 0.3s ease, transform 0.3s ease;
-    /* Transisi untuk hover */
 }
 
 .social-icons a:hover {
     color: #118AEC;
-    /* Warna berubah saat hover */
     transform: scale(1.1);
-    /* Ikon sedikit membesar saat hover */
 }
 
 a.card-link {
@@ -365,11 +285,7 @@ a.card-link {
     color: inherit;
 }
 
-/*
-========================================
-  Halaman Detail Mobil
-========================================
-*/
+/* Detail Mobil */
 .detail-container {
     padding: 30px 125px 80px 125px;
 }
@@ -398,10 +314,8 @@ a.card-link {
     gap: 50px;
 }
 
-/* Kolom Kiri: Galeri */
 .car-gallery {
     flex: 1;
-    /* Biarkan kolom ini mengisi sisa ruang yang fleksibel */
 }
 
 .car-gallery .main-image {
@@ -425,18 +339,14 @@ a.card-link {
     object-fit: cover;
 }
 
-/* Kolom Kanan: Info */
 .car-info-card {
     width: 250px;
-    /* Atur lebar tetap sesuai referensi */
     flex-shrink: 0;
-    /* Mencegah kolom ini menyusut */
     background: white;
     border-radius: 12px;
     border: 2px #E6E6E6 solid;
     padding: 30px 40px;
     align-self: flex-start;
-    /* Agar tingginya sesuai konten */
     position: sticky;
     top: 30px;
 }
@@ -496,8 +406,7 @@ a.card-link {
 
 .btn-rental {
     display: block;
-    width: 259px;
-    /* Atur lebar tombol sesuai referensi */
+    width: 100%; /* Diubah dari width: 259px */
     background: #118AEC;
     color: white;
     text-align: center;
@@ -513,19 +422,13 @@ a.card-link {
     background-color: #0d73c7;
 }
 
-/*
-========================================
-  Deskripsi & Fitur di Halaman Detail
-========================================
-*/
+/* Detail kiri kolom */
 .detail-left-column {
     flex: 1;
-    /* Menggantikan .car-gallery agar bisa menampung konten lain */
 }
 
 .car-details-lower {
     margin-top: 50px;
-    /* Jarak dari galeri gambar */
 }
 
 .description-section,
@@ -568,21 +471,15 @@ a.card-link {
 
 .features-table tr:last-child td {
     border-bottom: none;
-    /* Hapus border untuk baris terakhir */
 }
 
-/*
-========================================
-  Halaman Form Register Baru
-========================================
-*/
+/* Form Register */
 .register-container {
     padding: 80px 250px;
 }
 
 .register-header {
     margin-bottom: 40px;
-    /* Jarak dikurangi */
 }
 
 .register-header h1 {
@@ -601,9 +498,7 @@ a.card-link {
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* Membuat 2 kolom */
     gap: 40px 30px;
-    /* Jarak vertikal dikurangi */
     margin-bottom: 40px;
 }
 
@@ -626,29 +521,22 @@ a.card-link {
 .form-group-large input[type="password"] {
     width: 100%;
     height: 55px;
-    /* Tinggi input diperkecil */
     padding: 0 20px;
-    /* Padding disesuaikan */
     border-radius: 8px;
-    /* Border radius disesuaikan */
     border: 1px #A3A3A3 solid;
     font-size: 16px;
-    /* Ukuran font di dalam input diperkecil */
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
-/* Styling Khusus untuk Tombol Upload File */
 .file-upload-wrapper {
     position: relative;
     width: 100%;
     height: 55px;
-    /* Tinggi disamakan dengan input lain */
 }
 
 .file-input {
     display: none;
-    /* Sembunyikan input file asli */
 }
 
 .file-label {
@@ -658,11 +546,9 @@ a.card-link {
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    /* Border radius disesuaikan */
     border: 1px #A3A3A3 solid;
     cursor: pointer;
     font-size: 16px;
-    /* Ukuran font disesuaikan */
     color: #A3A3A3;
     font-weight: 400;
 }
@@ -670,14 +556,11 @@ a.card-link {
 .btn-register-submit {
     width: 100%;
     height: 55px;
-    /* Tinggi tombol disamakan */
     background: #118AEC;
     border: none;
     border-radius: 8px;
-    /* Border radius disesuaikan */
     color: white;
     font-size: 18px;
-    /* Ukuran font tombol disesuaikan */
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -691,7 +574,6 @@ a.card-link {
     text-align: center;
     margin-top: 20px;
     font-size: 16px;
-    /* Ukuran font disesuaikan */
     color: #A3A3A3;
 }
 
@@ -701,11 +583,7 @@ a.card-link {
     text-decoration: none;
 }
 
-/*
-========================================
-  Styling untuk Pop-up (Modal) Login (Versi Baru)
-========================================
-*/
+/* Modal Pop-up */
 .modal-overlay {
     position: fixed;
     z-index: 1000;
@@ -715,23 +593,21 @@ a.card-link {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     display: none;
-    /* Dibuat flex oleh JS saat aktif */
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
     background-color: #fff;
-    padding: 40px;
-    /* Padding diperkecil */
     border-radius: 12px;
-    position: relative;
-    width: 90%;
-    max-width: 420px;
-    /* Lebar maksimal diperkecil */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     animation: fadeIn 0.3s ease;
-    box-sizing: border-box;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
 }
 
 @keyframes fadeIn {
@@ -739,7 +615,6 @@ a.card-link {
         opacity: 0;
         transform: scale(0.9);
     }
-
     to {
         opacity: 1;
         transform: scale(1);
@@ -762,14 +637,26 @@ a.card-link {
 }
 
 .modal-header {
+    padding: auto;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
     text-align: center;
-    margin-bottom: 30px;
-    /* Jarak dikurangi */
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sewa-details-list .detail-item label {
+    font-size: 13px;
+}
+.sewa-details-list .detail-item span {
+    font-size: 14px;
 }
 
 .modal-header h1 {
     font-size: 24px;
-    /* Font diperkecil */
     font-weight: 600;
     color: #333333;
     margin: 20px 0 10px 0;
@@ -777,39 +664,31 @@ a.card-link {
 
 .modal-header p {
     font-size: 14px;
-    /* Font diperkecil */
     color: #A3A3A3;
     margin: 0;
 }
 
 .modal-content .form-group label {
     display: block;
-    /* PENTING: Membuat label berada di barisnya sendiri */
     margin-bottom: 10px;
-    /* Jarak antara label dan kotak input */
     font-size: 14px;
     font-weight: 600;
     text-align: left;
-    /* Pastikan teks label rata kiri */
     margin-top: 20px;
 }
 
 .modal-content .form-group input {
     height: 50px;
-    /* Tinggi input diperkecil */
     width: 308px;
     border-radius: 8px;
     border: 1px #A3A3A3 solid;
     padding: 0 15px;
-    /* Padding disesuaikan */
     font-size: 15px;
-    /* Font diperkecil */
 }
 
 .btn-login-submit {
     width: 100%;
     height: 50px;
-    /* Tinggi tombol diperkecil */
     margin-top: 20px;
     margin-bottom: 20px;
     background: #118AEC;
@@ -817,7 +696,6 @@ a.card-link {
     border-radius: 8px;
     color: white;
     font-size: 16px;
-    /* Font diperkecil */
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -831,7 +709,6 @@ a.card-link {
     text-align: center;
     margin-top: 25px;
     font-size: 14px;
-    /* Font diperkecil */
 }
 
 .form-prompt a {
@@ -840,11 +717,7 @@ a.card-link {
     text-decoration: none;
 }
 
-/*
-========================================
-  Styling untuk Pop-up "Login Required"
-========================================
-*/
+/* Styling untuk Alert & Modal khusus */
 .text-center {
     text-align: center;
 }
@@ -852,7 +725,6 @@ a.card-link {
 .modal-icon {
     font-size: 50px;
     color: #f8bb86;
-    /* Warna kuning peringatan */
     margin-bottom: 20px;
 }
 
@@ -870,7 +742,6 @@ a.card-link {
 
 .modal-content .btn-rental {
     margin: 0 auto;
-    /* Ini akan memusatkan tombol secara horizontal */
 }
 
 .alert {
@@ -888,7 +759,6 @@ a.card-link {
 
 .modal-icon.success {
     color: #28a745;
-    /* Warna hijau sukses */
 }
 
 .btn-primary {
@@ -900,11 +770,7 @@ a.card-link {
     height: 50px;
 }
 
-/*
-========================================
-  Halaman Cari Mobil
-========================================
-*/
+/* Halaman Cari Mobil */
 .search-page-container,
 .search-results-container {
     padding: 40px 125px;
@@ -931,42 +797,34 @@ a.card-link {
     margin-top: 20px;
 }
 
-/* Kotak pencarian utama dan tombolnya */
 .main-search-bar {
     display: flex;
     gap: 15px;
-    /* Memberi jarak antara input dan tombol */
     margin-bottom: 20px;
 }
 
 .main-search-bar input {
     flex-grow: 1;
-    /* Biarkan input mengisi sisa ruang */
     height: 56px;
     padding: 0 20px;
     border: 2px solid #E6E6E6;
     border-radius: 12px;
-    /* Diberi border-radius penuh */
     font-size: 14px;
 }
 
 .main-search-bar button {
     height: 56px;
     padding: 0 40px;
-    /* Atur lebar tombol dengan padding */
     border: none;
     background-color: #118AEC;
     color: white;
     font-weight: 600;
     font-size: 14px;
     border-radius: 12px;
-    /* Diberi border-radius penuh */
     cursor: pointer;
     flex-shrink: 0;
-    /* Mencegah tombol menyusut */
 }
 
-/* Baris untuk filter dropdown */
 .filter-bar {
     display: flex;
     gap: 20px;
@@ -974,7 +832,6 @@ a.card-link {
 
 .filter-bar select {
     width: 216px;
-    /* ATUR PANJANG FILTER DI SINI */
     height: 56px;
     padding: 0 15px;
     border-radius: 12px;
@@ -991,11 +848,7 @@ a.card-link {
     padding-right: 40px;
 }
 
-/*
-========================================
-  Styling untuk Hasil Pencarian Kosong
-========================================
-*/
+/* Hasil Pencarian Kosong */
 .no-results-container {
     width: 100%;
     text-align: center;
@@ -1050,11 +903,7 @@ a.card-link {
     color: #777;
 }
 
-/*
-========================================
-  Halaman Pemesanan (Booking) v2
-========================================
-*/
+/* Halaman Pemesanan */
 .booking-page-container {
     padding: 40px 125px;
 }
@@ -1066,10 +915,8 @@ a.card-link {
     align-items: flex-start;
 }
 
-/* Kolom Kiri */
 .booking-form-section {
     flex: 2;
-    /* Kolom kiri lebih lebar */
 }
 
 .form-header {
@@ -1080,12 +927,6 @@ a.card-link {
     font-size: 24px;
     font-weight: 600;
     margin: 0;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px 30px;
 }
 
 .form-group {
@@ -1114,7 +955,7 @@ a.card-link {
     height: auto;
     padding-top: 15px;
     resize: vertical;
-    min-height: 20px; /* ATUR TINGGI SESUAI KEINGINAN ANDA DI SINI */
+    min-height: 20px;
 }
 
 .form-group small {
@@ -1133,6 +974,7 @@ a.card-link {
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .rental-summary-section {
@@ -1151,7 +993,6 @@ a.card-link {
     font-weight: 500;
 }
 
-/* Kolom Kanan */
 .cost-summary-section {
     flex: 1;
     position: sticky;
@@ -1194,7 +1035,7 @@ a.card-link {
 }
 
 .btn-submit-rental {
-    display: block; /* PENTING: Agar link bisa diatur lebar & tingginya */
+    display: block;
     width: 100%;
     height: 56px;
     margin-top: 15px;
@@ -1205,14 +1046,14 @@ a.card-link {
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    text-align: center; /* Menengahkan teks secara horizontal */
-    text-decoration: none; /* Menghilangkan garis bawah link */
-    line-height: 56px; /* Trik untuk menengahkan teks secara vertikal */
+    text-align: center;
+    text-decoration: none;
+    line-height: 56px;
     transition: background-color 0.3s ease;
 }
 
 .btn-submit-rental:hover {
-    background-color: #e64a4a; /* Tambahkan efek hover */
+    background-color: #e64a4a;
 }
 
 .cost-summary-card .terms {
@@ -1223,26 +1064,19 @@ a.card-link {
     margin-top: 15px;
 }
 
-/*
-========================================
-  Styling Dropdown Halaman Pemesanan
-========================================
-*/
-
-.booking-form-section .form-group input,.booking-form-section .form-group input,
+.booking-form-section .form-group input,
 .booking-form-section .form-group select {
-    width: 100%; /* Lebar selalu 100% dari kolom grid */
-    height: 56px; /* Tinggi seragam untuk semua */
+    width: 100%;
+    height: 56px;
     padding: 0 15px;
     border: 2px solid #E6E6E6;
     border-radius: 12px;
-    box-sizing: border-box; /* Penting agar ukuran tetap konsisten */
+    box-sizing: border-box;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
-    background-color: white; /* Pastikan background sama */
+    background-color: white;
 }
 
-/* Pastikan style dropdown kustom tetap berlaku */
 .booking-form-section .form-group select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -1253,11 +1087,7 @@ a.card-link {
     padding-right: 40px;
 }
 
-/*
-========================================
-  Halaman Menunggu Pembayaran
-========================================
-*/
+/* Halaman Pembayaran */
 .payment-page-container {
     padding: 40px 0;
     display: flex;
@@ -1329,7 +1159,6 @@ a.card-link {
     cursor: pointer;
 }
 
-
 .payment-details-box {
     background: white;
     border-radius: 12px;
@@ -1341,39 +1170,9 @@ a.card-link {
 .payment-details-box .detail-row:first-child {
     padding-top: 0;
 }
-.payment-details-box .detail-row:last-of-type { /* Pilih row terakhir sebelum divider */
-    padding-bottom: 20px; /* Tambah padding agar ada ruang sebelum border */
-    border-bottom: 1px solid #D9D9D9; /* Cukup satu garis sebagai pembatas */
-}
-
-.detail-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-}
-.detail-row label {
-    display: block;
-    font-size: 12px;
-    color: #333;
-    margin-bottom: 5px;
-}
-.detail-row strong {
-    font-size: 14px;
-    font-weight: 600;
-    display: block;
-}
-.detail-row span {
-    font-size: 12px;
-    color: #A3A3A3;
-}
-.btn-copy {
-    background: none;
-    border: none;
-    color: #118AEC;
-    font-weight: 600;
-    font-size: 12px;
-    cursor: pointer;
+.payment-details-box .detail-row:last-of-type {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #D9D9D9;
 }
 
 .payment-divider {
@@ -1398,22 +1197,19 @@ a.card-link {
 }
 
 .payment-actions {
-    display: flex; /* Gunakan flexbox untuk menata tombol */
-    gap: 10px; /* Jarak antar tombol */
-    width: 100%; /* Pastikan kontainer mengambil lebar penuh */
+    display: flex;
+    gap: 10px;
+    width: 100%;
     margin-top: 30px;
     align-items: center;
 }
 
-/* Style spesifik untuk tombol di HALAMAN PEMBAYARAN */
 .payment-actions .btn {
-    flex: 1; /* PENTING: Membuat kedua tombol berbagi lebar secara merata */
+    flex: 1;
     height: 30px;
     font-size: 12px;
 }
 
-/* Style dasar untuk SEMUA tombol (baik <a> maupun <button>) */
-/* Kita buat lebih umum agar bisa dipakai di tempat lain */
 .btn {
     display: inline-flex;
     justify-content: center;
@@ -1428,9 +1224,6 @@ a.card-link {
     font-family: 'Poppins', sans-serif;
 }
 
-
-
-/* Style untuk tombol utama (biru) */
 .btn-primary {
     background-color: #118AEC;
     border-color: #118AEC;
@@ -1443,7 +1236,6 @@ a.card-link {
     border-color: #0d73c7;
 }
 
-/* Style untuk tombol outline (garis luar) */
 .btn-outline {
     background-color: white;
     border-color: #118AEC;
@@ -1464,24 +1256,19 @@ a.card-link {
 .payment-instructions h4 { font-size: 12px; margin: 15px 0 5px 0; }
 .payment-instructions ol { padding-left: 20px; }
 
-/* Style untuk input yang disabled di ringkasan */
 .rental-summary-section input:disabled {
     background-color: #f5f5f5;
     color: #555;
     font-weight: 500;
-    cursor: not-allowed; /* Menunjukkan input tidak bisa di-klik */
+    cursor: not-allowed;
     border-color: #eee;
 }
-/*
-========================================
-  Styling Upload File Kustom v2 (Dropzone)
-========================================
-*/
+
+/* Upload File Kustom */
 #upload-proof-modal .modal-content {
-    max-width: 500px; /* Sesuaikan lebar modal */
+    max-width: 500px;
 }
 
-/* Sembunyikan input file asli */
 #bukti_pembayaran {
     display: none;
 }
@@ -1523,15 +1310,13 @@ a.card-link {
     color: #A3A3A3;
 }
 
-/* Untuk preview gambar */
 .image-preview {
-    display: none; /* Sembunyi secara default */
+    display: none;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Pastikan gambar memenuhi area tanpa distorsi */
+    object-fit: cover;
 }
 
-/* Tombol Aksi */
 .form-actions-vertical {
     margin-top: 30px;
     display: flex;
@@ -1549,11 +1334,7 @@ a.card-link {
     padding: 0;
 }
 
-/*
-========================================
-  Halaman Terima Kasih Pembayaran
-========================================
-*/
+/* Halaman Terima Kasih */
 .payment-thankyou-card {
     background-color: #fff;
     border-radius: 12px;
@@ -1591,13 +1372,9 @@ a.card-link {
     letter-spacing: 1px;
 }
 
-/*
-========================================
-  User Dropdown di Header
-========================================
-*/
+/* User Dropdown */
 .user-dropdown {
-    position: relative; /* Diperlukan agar dropdown-menu bisa diposisikan */
+    position: relative;
 }
 
 .user-dropdown .dropdown-toggle {
@@ -1625,7 +1402,7 @@ a.card-link {
 }
 
 .user-dropdown .dropdown-menu {
-    display: none; /* Sembunyi secara default */
+    display: none;
     position: absolute;
     right: 0;
     top: 100%;
@@ -1684,25 +1461,13 @@ a.card-link {
     margin-top: 1rem;
 }
 
-.btn-primary {
-    background-color: #118AEC;
-    color: white;
-    border-color: #118AEC;
-}
-
 .btn-secondary {
     background-color: #e9ecef;
     color: #495057;
     border-color: #e9ecef;
 }
 
-/*
-========================================
-  Halaman Riwayat Sewa (User)
-========================================
-*/
-
-/* Menggunakan kembali style dari admin */
+/* Halaman Riwayat Sewa */
 .page-container .page-header {
     display: flex;
     justify-content: space-between;
@@ -1743,37 +1508,33 @@ a.card-link {
     width: 120px;
 }
 .page-container .btn-icon {
-    padding: 20px; /* Atur padding */
-    width: 1px;  /* Lebar eksplisit */
-    height: 1px; /* Tinggi eksplisit */
-    border-radius: 50%; /* Bentuk lingkaran */
+    margin-top: 10px;
+    padding: 5px;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
     background-color: #f5f5f5;
     color: #555;
     transition: all 0.2s ease;
-    display: inline-flex; /* Penting untuk centering */
-    justify-content: center; /* Pusatkan horizontal */
-    align-items: center; /* Pusatkan vertikal */
-    text-decoration: none; /* Pastikan tidak ada underline */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 .page-container .btn-icon:hover {
     background-color: #e0e0e0;
 }
 .page-container .btn-icon i {
     font-size: 15px;
-    line-height: 2; /* Hapus spasi ekstra di sekitar ikon */
+    line-height: 2;
 }
 
-/* Jika ada spesifik style untuk btn-primary pada ikon, pastikan tidak menimpa lebar/tinggi */
-.btn.btn-primary.btn-icon { /* Pastikan ini tidak mengganggu */
-    background-color: #118AEC; /* Atau warna primary Anda */
+.btn.btn-primary.btn-icon {
+    background-color: #118AEC;
     color: white;
 }
 
-/*
-========================================
-  Halaman Pengaturan Profil
-========================================
-*/
+/* Halaman Profil */
 .profile-page-container {
     padding: 40px 320px;
     max-width: 1116px;
@@ -1840,9 +1601,9 @@ a.card-link {
 
 .profile-form-actions {
     display: flex;
-    justify-content: space-between; /* Memberi jarak otomatis */
-    gap: 25px; /* Jarak eksplisit antar tombol */
-    width: auto; /* Lebar total kontainer sesuai referensi */
+    justify-content: space-between;
+    gap: 25px;
+    width: auto;
     margin-top: 50px;
 }
 
@@ -1853,17 +1614,12 @@ a.card-link {
     box-sizing: border-box;
 }
 
-/*
-========================================
-  Halaman Ubah Password
-========================================
-*/
+/* Halaman Ubah Password */
 .password-container {
     padding: 80px 125px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Kita pusatkan form-wrapper-nya, bukan semua konten */
 }
 
 .password-container .form-wrapper {
@@ -1871,19 +1627,14 @@ a.card-link {
     max-width: 500px;
 }
 
-/* Tambahkan ini untuk mengatur header di dalamnya */
 .password-container .register-header {
     width: 100%;
     max-width: 500px;
-    text-align: left; /* Membuat teks rata kiri */
+    text-align: left;
     margin-bottom: 30px;
 }
 
-/*
-========================================
-  Halaman Tentang Kami
-========================================
-*/
+/* Halaman Tentang Kami */
 .about-us-banner {
     width: 100%;
     height: 350px;
@@ -1914,15 +1665,15 @@ a.card-link {
     font-size: 18px;
     color: #A3A3A3;
     line-height: 35px;
-    text-align: justify;
+
 }
 
 .about-section ul {
-    list-style-position: inside; /* Posisi bullet point */
+    list-style-position: inside;
     padding-left: 0;
 }
 
-/* Styling untuk Filter Checkbox */
+/* Filter Checkbox */
 .filter-group {
     flex: 1;
 }
@@ -1961,7 +1712,7 @@ a.card-link {
     margin-top: 20px;
     border-radius: 8px;
     font-weight: 500;
-    display: none; /* Sembunyi sampai ada pesan */
+    display: none;
 }
 .availability-message.checking {
     display: block;
@@ -1979,24 +1730,12 @@ a.card-link {
     color: #721c24;
 }
 
-/*
-========================================
-  Halaman Kontak
-========================================
-*/
-/* Hapus layout flex lama */
-.contact-layout {
-    /* Properti flex dihapus dari sini */
-}
-
+/* Halaman Kontak */
 .contact-form-section {
-    max-width: 600px; /* Batasi lebar form agar tidak terlalu panjang */
+    max-width: 600px;
     margin-bottom: 50px;
 }
 
-/* ... (style untuk .contact-form tetap sama) ... */
-
-/* Layout Baru untuk Bagian Bawah */
 .contact-bottom-layout {
     display: flex;
     gap: 50px;
@@ -2004,7 +1743,7 @@ a.card-link {
 }
 
 .contact-info-section {
-    flex: 1; /* Kolom info mengambil 1 bagian */
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -2030,17 +1769,13 @@ a.card-link {
 }
 
 .map-section {
-    flex: 2; /* Kolom peta mengambil 2 bagian (lebih lebar) */
+    flex: 2;
     border-radius: 12px;
     overflow: hidden;
     height: 300px;
 }
 
-/*
-========================================
-  Halaman Statis (Syarat & Ketentuan)
-========================================
-*/
+/* Halaman Statis */
 .static-page-header {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -2064,4 +1799,1563 @@ a.card-link {
     font-size: 16px;
     line-height: 1.8;
     color: #555;
+}
+
+.sewa-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sewa-details-list .detail-item {
+    display: block;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sewa-details-list .detail-item:last-child {
+    border-bottom: none;
+}
+
+.sewa-details-list .detail-item label {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.sewa-details-list .detail-item span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    text-align: right;
+}
+
+/*
+========================================
+  RESPONSIVE MEDIA QUERIES
+========================================
+*/
+
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) {
+
+    .car-info-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        position: relative;
+        top: 0;
+    }
+
+    .header {
+        padding: 0 60px;
+        height: 120px;
+    }
+    
+    .nav-menu ul {
+        gap: 25px;
+    }
+    
+    .nav-menu a,
+    .auth-buttons a {
+        font-size: 13px;
+    }
+    
+    .car-listing,
+    .detail-container,
+    .search-page-container,
+    .search-results-container,
+    .booking-page-container,
+    .about-us-container {
+        padding: 40px 60px;
+    }
+    
+    .footer {
+        padding: 60px 60px;
+    }
+    
+    .car-cards-container {
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .car-card {
+        width: calc(50% - 10px);
+        max-width: 355px;
+    }
+    
+    .detail-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .car-info-card {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+    
+    .thumbnail-images {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .thumbnail-images img {
+        width: calc(50% - 7.5px);
+    }
+    
+    .booking-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .cost-summary-section {
+        position: relative;
+        top: 0;
+    }
+    
+    .register-container {
+        padding: 60px 120px;
+    }
+    
+    .profile-page-container {
+        padding: 40px 120px;
+    }
+    
+    .password-container {
+        padding: 60px 60px;
+    }
+}
+
+/* Tablet Portrait (768px and below) */
+@media (max-width: 768px) {
+
+        .btn-outline {
+        width: 100%;
+        max-width: 100%;
+        height: 48px;
+        font-size: 15px;
+        padding: 12px 18px;
+        border-radius: 10px;
+    }
+
+     .btn-primary {
+        width: 100%;
+        max-width: 100%;
+        height: 48px;
+        font-size: 15px;
+        padding: 12px 18px;
+        border-radius: 10px;
+    }
+    
+    .car-info-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .header {
+        padding: 0 30px;
+        height: 100px;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+    }
+    
+    .nav-menu ul {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .auth-buttons {
+        gap: 20px;
+    }
+    
+    .hero-section img {
+        height: 400px;
+    }
+    
+    .car-listing,
+    .detail-container,
+    .search-page-container,
+    .search-results-container,
+    .booking-page-container,
+    .about-us-container {
+        padding: 30px 30px;
+    }
+    
+    .footer {
+        padding: 40px 30px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .car-listing-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .car-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .car-card {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .filter-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .filter-bar select {
+        width: 100%;
+    }
+    
+    .main-search-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .main-search-bar button {
+        padding: 0 20px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .register-container {
+        padding: 40px 40px;
+    }
+    
+    .profile-page-container {
+        padding: 30px 40px;
+    }
+    
+    .profile-form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .profile-form-actions {
+        flex-direction: column;
+    }
+    
+    .password-container {
+        padding: 40px 30px;
+    }
+    
+    .contact-bottom-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .modal-content {
+        max-width: 90%;
+        margin: 0 20px;
+    }
+    
+    .modal-content .form-group input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .payment-card {
+        max-width: 90%;
+    }
+    
+    .payment-instructions {
+        max-width: 90%;
+    }
+    
+    .checkbox-filter-group {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 10px;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+
+    .btn-outline {
+        width: 100%;
+        height: 44px;
+        font-size: 14px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        min-height: px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        height: 44px;
+        font-size: 14px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        min-height: 44px; /* Minimum touch target */
+    }
+
+    .header {
+        padding: 0 20px;
+        height: auto;
+        min-height: 80px;
+    }
+    
+    .nav-menu ul {
+        gap: 15px;
+        font-size: 12px;
+    }
+    
+    .auth-buttons {
+        gap: 15px;
+    }
+    
+    .auth-buttons .btn-login {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+    
+    .hero-section img {
+        height: 250px;
+    }
+    
+    .car-listing,
+    .detail-container,
+    .search-page-container,
+    .search-results-container,
+    .booking-page-container,
+    .about-us-container {
+        padding: 20px 20px;
+    }
+    
+    .footer {
+        padding: 30px 20px;
+    }
+    
+    .car-listing-header h2 {
+        font-size: 20px;
+    }
+    
+    .car-listing-header .view-all-link {
+        font-size: 16px;
+    }
+    
+    .car-card {
+        width: 100%;
+    }
+    
+    .car-card-body {
+        padding: 15px 20px;
+    }
+    
+    .car-specs {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 15px;
+    }
+    
+    .spec-item span {
+        font-size: 12px;
+    }
+    
+    .car-info-card {
+        padding: 20px 25px;
+    }
+    
+    .car-info-card h1 {
+        font-size: 22px;
+    }
+    
+    .car-info-card .price-label {
+        font-size: 18px;
+    }
+    
+    .price-details .price-amount-detail {
+        font-size: 24px;
+    }
+    
+    .btn-rental {
+        width: 100%;
+        font-size: 16px;
+        padding: 15px 0;
+    }
+    
+    .register-container {
+        padding: 30px 20px;
+    }
+    
+    .register-header h1 {
+        font-size: 20px;
+    }
+    
+    .register-header p {
+        font-size: 16px;
+    }
+    
+    .form-group-large label {
+        font-size: 16px;
+    }
+    
+    .form-group-large input {
+        height: 50px;
+        font-size: 14px;
+    }
+    
+    .file-label {
+        font-size: 14px;
+    }
+    
+    .btn-register-submit {
+        height: 50px;
+        font-size: 16px;
+    }
+    
+    .profile-page-container {
+        padding: 20px 20px;
+    }
+    
+    .profile-header h1 {
+        font-size: 20px;
+    }
+    
+    .profile-header p {
+        font-size: 16px;
+    }
+    
+    .password-container {
+        padding: 30px 20px;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+        margin: 0 10px;
+    }
+    
+    .modal-header h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .payment-card {
+        max-width: 95%;
+    }
+    
+    .payment-header h2 {
+        font-size: 20px;
+    }
+    
+    .countdown-timer {
+        font-size: 24px;
+    }
+    
+    .payment-details-box {
+        padding: 20px;
+    }
+    
+    .btn-copy {
+        font-size: 11px;
+    }
+    
+    .page-container .data-card-body {
+        overflow-x: scroll;
+    }
+    
+    .page-container .data-table {
+        min-width: 600px;
+    }
+    
+    .page-container .data-table th,
+    .page-container .data-table td {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+    
+    .about-section h2 {
+        font-size: 20px;
+    }
+    
+    .about-section p,
+    .about-section li {
+        font-size: 16px;
+        line-height: 28px;
+    }
+    
+    .about-us-banner {
+        height: 250px;
+    }
+    
+    .static-page-header h1 {
+        font-size: 24px;
+    }
+    
+    .static-page-content h2 {
+        font-size: 18px;
+    }
+    
+    .static-page-content p,
+    .static-page-content li {
+        font-size: 14px;
+    }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+
+    .btn-outline {
+        width: 100%;
+        height: 42px;
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+     .btn-primary {
+        width: 100%;
+        height: 42px;
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .header {
+        padding: 0 15px;
+    }
+    
+    .nav-menu ul {
+        gap: 10px;
+    }
+    
+    .nav-menu a,
+    .auth-buttons a {
+        font-size: 11px;
+    }
+    
+    .car-listing,
+    .detail-container,
+    .search-page-container,
+    .search-results-container,
+    .booking-page-container,
+    .about-us-container {
+        padding: 15px 15px;
+    }
+    
+    .footer {
+        padding: 25px 15px;
+    }
+    
+    .car-card-body {
+        padding: 12px 15px;
+    }
+    
+    .car-card-body h3 {
+        font-size: 18px;
+    }
+    
+    .car-price .price-amount {
+        font-size: 18px;
+    }
+    
+    .car-specs {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .register-container,
+    .profile-page-container,
+    .password-container {
+        padding: 20px 15px;
+    }
+    
+    .modal-content {
+        margin: 0 5px;
+    }
+    
+    .payment-card,
+    .payment-instructions {
+        max-width: 98%;
+    }
+}
+
+/*
+========================================
+  HAMBURGER MENU STYLES - LENGKAP
+========================================
+*/
+
+/* Reset header untuk mobile compatibility */
+.header {
+    background-color: #118AEC;
+    color: white;
+    height: 158px;
+    padding: 0 125px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+}
+
+/* Brand Logo */
+.brand-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+    z-index: 1002;
+}
+
+.brand-logo a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hamburger Button - Tersembunyi di desktop */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1002;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    transform-origin: center;
+}
+
+/* Animasi hamburger menjadi X */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-nav-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.mobile-nav-content {
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    margin-left: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav-overlay.active .mobile-nav-content {
+    transform: translateX(0);
+}
+
+/* Close Button */
+.mobile-nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-nav-close:hover {
+    background-color: #f0f0f0;
+}
+
+/* Mobile Navigation List */
+.mobile-nav {
+    padding: 70px 0 0 0; /* Hilangkan padding bottom */
+    background-color: white; /* Pastikan background putih */
+    min-height: calc(100vh - 70px); /* Pastikan tinggi penuh */
+}
+
+.mobile-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: white; /* Background putih untuk list */
+}
+
+.mobile-nav-list li {
+    border-bottom: 1px solid #f0f0f0;
+    background-color: white; /* Background putih untuk setiap item */
+}
+
+.mobile-nav-item {
+    display: block;
+    padding: 18px 25px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: white; /* Background putih untuk link */
+}
+
+.mobile-nav-item:hover {
+    background-color: #f8f9fa;
+    color: #118AEC;
+    padding-left: 35px;
+}
+
+.mobile-nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #118AEC;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.mobile-nav-item:hover::before {
+    transform: scaleY(1);
+}
+
+/* Mobile Auth Section */
+.mobile-auth-section {
+    margin-top: 0; /* Hilangkan margin top */
+    padding: 20px 25px 40px 25px; /* Tambah padding bottom */
+    background-color: rgb(255, 255, 255); /* Ubah dari #fafafa ke white */
+    min-height: 200px; /* Pastikan tinggi minimum */
+}
+
+.mobile-nav-item {
+    display: block;
+    padding: 18px 25px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.mobile-nav-item:hover {
+    background-color: #f8f9fa;
+    color: #118AEC;
+    padding-left: 35px;
+}
+
+.mobile-nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #118AEC;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.mobile-nav-item:hover::before {
+    transform: scaleY(1);
+}
+
+/* Mobile Auth Section */
+.mobile-auth-section {
+    margin-top: 30px;
+    padding: 20px 25px;
+    background-color: #ffffff;
+}
+
+/* Mobile User Info */
+.mobile-user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-user-avatar {
+    margin-right: 15px;
+}
+
+.mobile-user-avatar i {
+    font-size: 36px;
+    color: #118AEC;
+}
+
+.mobile-user-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Mobile User Menu */
+.mobile-user-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-auth-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    border: none;
+    background: white;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.mobile-auth-item:hover {
+    background-color: #f0f8ff;
+    color: #118AEC;
+}
+
+.mobile-auth-item i {
+    margin-right: 12px;
+    width: 18px;
+    font-size: 16px;
+}
+
+.mobile-logout-form {
+    margin: 0;
+}
+
+.logout-btn {
+    color: #dc3545 !important;
+}
+
+.logout-btn:hover {
+    background-color: #fdf2f2 !important;
+    color: #c82333 !important;
+}
+
+/* Mobile Guest Buttons */
+.mobile-guest-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mobile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mobile-btn i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.mobile-btn-register {
+    background-color: #f8f9fa;
+    color: #118AEC;
+    border: 2px solid #118AEC;
+}
+
+.mobile-btn-register:hover {
+    background-color: #118AEC;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(17, 138, 236, 0.3);
+}
+
+.mobile-btn-login {
+    background-color: #118AEC;
+    color: white;
+}
+
+.mobile-btn-login:hover {
+    background-color: #0d73c7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(17, 138, 236, 0.4);
+}
+
+/*
+========================================
+  RESPONSIVE BREAKPOINTS UNTUK HAMBURGER
+========================================
+*/
+
+/* Desktop - Sembunyikan hamburger, tampilkan nav normal */
+@media (min-width: 769px) {
+    .hamburger-menu {
+        display: none !important;
+    }
+    
+    .mobile-nav-overlay {
+        display: none !important;
+    }
+    
+    .desktop-nav,
+    .desktop-auth {
+        display: flex;
+    }
+    
+    .header {
+        height: 158px;
+        padding: 0 125px;
+    }
+}
+
+/* Tablet dan Mobile - Tampilkan hamburger, sembunyikan nav desktop */
+@media (max-width: 768px) {
+    
+    .desktop-nav,
+    .desktop-auth {
+        display: none !important;
+    }
+    
+    .hamburger-menu {
+        display: flex !important;
+    }
+    
+    .header {
+        justify-content: flex-start !important;
+        align-items: center !important;
+        padding: 0 20px !important;
+        height: 80px !important;
+        position: relative !important;
+        flex-direction: row !important;
+    }
+    
+    .brand-logo {
+        position: absolute !important;
+        left: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        flex: none !important;
+        text-align: left !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 1002 !important;
+    }
+    
+    .hamburger-menu {
+        position: absolute !important;
+        right: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        flex: none !important;
+        margin: 0 !important;
+        z-index: 1002 !important;
+    }
+    
+    .mobile-nav-content {
+        width: 320px;
+    }
+}
+
+/* Mobile sedang */
+@media (max-width: 480px) {
+    .header {
+        padding: 0 15px !important;
+        height: 70px !important;
+    }
+    
+    .brand-logo {
+        font-size: 18px;
+        left: 15px !important;
+    }
+    
+    .hamburger-menu {
+        width: 35px;
+        height: 35px;
+        right: 15px !important;
+    }
+    
+    .hamburger-line {
+        width: 20px;
+        height: 2px;
+    }
+    
+    .mobile-nav-content {
+        width: 280px;
+    }
+    
+    .mobile-nav-item {
+        padding: 16px 20px;
+        font-size: 15px;
+    }
+    
+    .mobile-auth-section {
+        padding: 15px 20px;
+    }
+    
+    .mobile-user-name {
+        font-size: 16px;
+    }
+    
+    .mobile-btn {
+        padding: 12px 15px;
+        font-size: 15px;
+        height: 52px;
+        line-height: 1;
+    }
+}
+
+/* Extra mobile kecil */
+@media (max-width: 360px) {
+    .header {
+        padding: 0 10px !important;
+        height: 65px !important;
+    }
+    
+    .brand-logo {
+        font-size: 16px;
+        left: 10px !important;
+    }
+    
+    .hamburger-menu {
+        width: 32px;
+        height: 32px;
+        right: 10px !important;
+    }
+    
+    .hamburger-line {
+        width: 18px;
+        height: 2px;
+        margin: 2px 0;
+    }
+    
+    .mobile-nav-content {
+        width: 260px;
+    }
+}
+
+/* Pastikan tidak ada overflow pada mobile */
+@media (max-width: 768px) {
+    body.mobile-nav-open {
+        overflow: hidden;
+    }
+    
+    .page-container {
+        overflow-x: hidden;
+    }
+}
+
+/*
+========================================
+  Halaman Statis (Syarat & Ketentuan, dll) - RESPONSIF
+========================================
+*/
+
+/* Base styles untuk desktop */
+.static-page-container {
+    padding: 40px 125px;
+}
+
+.static-page-header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+.static-page-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: left;
+    margin: 0;
+}
+
+.static-page-content {
+    text-align: left;
+}
+
+.static-page-content h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.static-page-content p, 
+.static-page-content li {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.static-page-content ul {
+    list-style-position: inside;
+    text-align: left;
+    padding-left: 0;
+}
+
+.static-page-content ol {
+    text-align: left;
+    padding-left: 20px;
+}
+
+/*
+========================================
+  RESPONSIVE BREAKPOINTS
+========================================
+*/
+
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) {
+    .static-page-container {
+        padding: 30px 80px;
+    }
+    
+    .static-page-header h1 {
+        font-size: 26px;
+    }
+    
+    .static-page-content h2 {
+        font-size: 19px;
+    }
+    
+    .static-page-content p,
+    .static-page-content li {
+        font-size: 15px;
+    }
+}
+
+/* Tablet Portrait (768px and below) */
+@media (max-width: 768px) {
+    .static-page-container {
+        padding: 25px 40px;
+    }
+    
+    .static-page-header {
+        margin-top: 20px;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+    }
+    
+    .static-page-header h1 {
+        font-size: 24px;
+        text-align: left;
+    }
+    
+    .static-page-content h2 {
+        font-size: 18px;
+        margin-top: 25px;
+        text-align: left;
+    }
+    
+    .static-page-content p,
+    .static-page-content li {
+        font-size: 14px;
+        line-height: 1.7;
+        text-align: left; /* Ubah dari justify ke left untuk mobile */
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    .static-page-container {
+        padding: 20px 15px;
+    }
+    
+    .static-page-header {
+        margin-top: 15px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+    }
+    
+    .static-page-header h1 {
+        font-size: 22px;
+        text-align: left;
+    }
+    
+    .static-page-content h2 {
+        font-size: 17px;
+        margin-top: 20px;
+        margin-bottom: 12px;
+        text-align: left;
+    }
+    
+    .static-page-content p,
+    .static-page-content li {
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+        margin-bottom: 12px;
+    }
+    
+    .static-page-content ul {
+        padding-left: 15px;
+    }
+    
+    .static-page-content ol {
+        padding-left: 18px;
+    }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+    .static-page-container {
+        padding: 15px 10px;
+    }
+    
+    .static-page-header {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+    
+    .static-page-header h1 {
+        font-size: 20px;
+        text-align: left;
+    }
+    
+    .static-page-content h2 {
+        font-size: 16px;
+        margin-top: 18px;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+    
+    .static-page-content p,
+    .static-page-content li {
+        font-size: 13px;
+        line-height: 1.5;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    
+    .static-page-content ul {
+        padding-left: 12px;
+    }
+    
+    .static-page-content ol {
+        padding-left: 15px;
+    }
+}
+
+/* Breadcrumb responsif (jika digunakan dalam static page) */
+@media (max-width: 768px) {
+    .breadcrumb {
+        font-size: 13px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb {
+        font-size: 12px;
+        margin-bottom: 15px;
+        padding: 0 5px;
+    }
+}
+
+/* Accessibility improvements untuk mobile */
+@media (max-width: 768px) {
+    .static-page-content h2 {
+        line-height: 1.3; /* Better line height for headings on mobile */
+    }
+    
+    .static-page-content p {
+        word-wrap: break-word; /* Prevent text overflow */
+        hyphens: auto; /* Enable hyphenation for better text flow */
+    }
+}
+
+
+/*
+========================================
+  Responsivitas untuk Modal Pop-up
+========================================
+*/
+
+/* Untuk layar tablet (lebar maksimal 768px) */
+@media (max-width: 768px) {
+    .modal-content {
+        /* Pop-up akan sedikit lebih lebar di tablet */
+        max-width: 80vw; 
+    }
+
+    .sewa-details-list, .user-details-grid {
+        /* Ubah layout detail menjadi 1 kolom */
+        grid-template-columns: 1fr;
+    }
+
+    .user-document-images {
+        flex-direction: column; /* Susun gambar KTP/KK ke bawah */
+        align-items: center;
+    }
+}
+
+/* Untuk layar ponsel (lebar maksimal 480px) */
+@media (max-width: 480px) {
+    .modal-content {
+        /* Buat pop-up memenuhi layar dengan sedikit padding */
+        max-width: 95vw;
+        padding: 20px;
+    }
+
+    .modal-header h1,
+    .modal-header h2 {
+        font-size: 18px; /* Perkecil judul di pop-up */
+        text-align: center;
+    }
+    
+    .modal-header p {
+        font-size: 14px;
+    }
+
+    /* Perkecil padding pada body modal */
+    .modal-body {
+        padding: 15px;
+    }
+
+    /* Atur ulang layout detail di layar kecil */
+    .sewa-details-list .detail-item {
+        flex-direction: column; /* Susun label dan nilai ke bawah */
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .sewa-details-list .detail-item span {
+        text-align: left;
+    }
+}
+
+/* Base styles untuk desktop */
+.page-content-wrapper {
+    padding: 40px 125px;
+}
+
+.data-card-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/*
+========================================
+  RESPONSIVE BREAKPOINTS
+========================================
+*/
+
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) {
+    .page-content-wrapper {
+        padding: 30px 80px;
+    }
+    
+    .data-card-footer {
+        padding: 18px;
+        gap: 12px;
+    }
+}
+
+/* Tablet Portrait (768px and below) */
+@media (max-width: 768px) {
+    .page-content-wrapper {
+        padding: 25px 40px;
+    }
+    
+    .data-card-footer {
+        padding: 15px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    .page-content-wrapper {
+        padding: 20px 20px;
+    }
+    
+    .data-card-footer {
+        padding: 12px 15px;
+        gap: 12px;
+    }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+    .page-content-wrapper {
+        padding: 15px 15px;
+    }
+    
+    .data-card-footer {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+}
+
+/* Jika footer berisi tombol-tombol */
+.data-card-footer .btn {
+    flex: 1;
+    min-width: 120px;
+}
+
+@media (max-width: 768px) {
+    .data-card-footer .btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .data-card-footer .btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Jika footer berisi pagination atau navigasi */
+.data-card-footer .pagination {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .data-card-footer .pagination {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Menyamakan ukuran tombol */
+.btn-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Jika tombol di atas menggunakan class tertentu, samakan ukurannya */
+.btn-small,
+.btn-round {
+    width: 20px;
+    height: 20px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+    .btn-icon,
+    .btn-small,
+    .btn-round {
+        width: 26px;
+        height: 26px;
+        min-width: 36px;
+        min-height: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-icon,
+    .btn-small,
+    .btn-round {
+        width: 26px;
+        height: 26px;
+        min-width: 32px;
+        min-height: 32px;
+    }
+}
+
+.bukti-pembayaran-img {
+    width: 100%; /* Ubah ini agar lebar fleksibel */
+    max-width: 305px; /* Atur batas lebar maksimal di sini */
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: block; /* Pastikan gambar tidak memiliki spasi ekstra di bawahnya */
+    margin: 0 auto; /* Pusatkan gambar jika kontainernya lebih lebar */
+    margin-top: 20px;
 }
