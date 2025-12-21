@@ -31,7 +31,7 @@ class RentalController extends Controller
         // 2. Kalkulasi di sisi server (lebih aman)
         $tanggalMulai = new \DateTime($validated['start_date']);
         $tanggalSelesai = new \DateTime($validated['end_date']);
-        $durasiHari = $tanggalSelesai->diff($tanggalMulai)->days;
+        $durasiHari = $tanggalSelesai->diff($tanggalMulai)->days + 1;
 
         $biayaMobilTotal = $mobil->harga_sewa * $durasiHari;
         $biayaDriverTotal = ($validated['use_driver'] === 'Ya') ? (150000 * $durasiHari) : 0;

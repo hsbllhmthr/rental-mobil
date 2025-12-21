@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Rental Mobil Tri Manunggala')</title>
+    <title>@yield('title', 'Rental Mobil Tri Manunggal')</title>
     
     {{-- Include PWA Meta Tags --}}
     <x-pwa-head />
@@ -30,7 +30,7 @@
         <header class="header">
             {{-- Logo atau Brand Name --}}
             <div class="brand-logo">
-                <a href="{{ route('home') }}">Tri Manunggala</a>
+                <a href="{{ route('home') }}">Tri Manunggal</a>
             </div>
 
             {{-- Desktop Navigation (tampil di desktop) --}}
@@ -156,8 +156,8 @@
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-column about">
-                    <h3>Tri Manunggala Car</h3>
-                    <p>Penyedia layanan rental mobil terpercaya dengan koleksi kendaraan berkualitas untuk kebutuhan perjalanan Anda.</p>
+                    <h3>Tri Manunggal</h3>
+                    <p>Penyedia layanan rental mobil yang terpercaya dengan melayani sepenuh hati demi menghadirkan kenyamanan terbaik untuk setiap pelanggan.</p>
                 </div>
                 <div class="footer-column">
                     <h3>Menu Utama</h3>
@@ -173,7 +173,7 @@
                     <h3>Kontak Informasi</h3>
                     <ul class="contact-list">
                         <li><strong>Telepon : </strong><span>081355811336</span></li>
-                        <li><strong>Alamat Email : </strong><span>trimanunggala@gmail.com</span></li>
+                        <li><strong>Alamat Email : </strong><span>trimanunggal@gmail.com</span></li>
                         <li><strong>Alamat : </strong><span>Tamalanrea, Makassar City, South Sulawesi, 902455</span></li>
                     </ul>
                 </div>
@@ -199,7 +199,7 @@
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <div class="modal-header">
-                <h1>Selamat Datang di <br> Tri Manunggala Rent</h1>
+                <h1>Selamat Datang di <br> Tri Manunggal</h1>
                 <p>Silahkan Masukkan Alamat Email <br> dan Password Anda</p>
             </div>
             <form action="{{ route('login.submit') }}" method="POST">
@@ -208,10 +208,18 @@
                     <label for="login_email">Alamat Email</label>
                     <input type="email" id="login_email" name="email" placeholder="Masukkan Alamat Email" required>
                 </div>
-                <div class="form-group">
-                    <label for="login_password">Password</label>
-                    <input type="password" id="login_password" name="password" placeholder="Masukkan Password" required>
-                </div>
+        <div class="form-group">
+    <label for="login_password">Password</label>
+    <div style="position: relative;">
+        <input type="password" id="login_password" name="password" placeholder="Masukkan Password" required>
+        <span id="togglePassword" 
+              style="position:absolute; right:20px; top:50%; transform:translateY(-50%); cursor:pointer;">
+            <i class="fa fa-eye"></i>
+        </span>
+    </div>
+</div>
+
+
                 <button type="submit" class="btn-login-submit">Masuk</button>
             </form>
             <p class="form-prompt">Belum Punya Akun ? <a href="{{ route('register') }}">Daftar Disini</a></p>
@@ -239,7 +247,7 @@
                 <i class="fa-solid fa-circle-check"></i>
             </div>
             <h2>Pendaftaran Berhasil!</h2>
-            <p>Akun Anda telah berhasil dibuat. Selamat datang di Tri Manunggala Rent!</p>
+            <p>Akun Anda telah berhasil dibuat. Selamat datang di Tri Manunggal!</p>
             <button class="btn-primary close-btn" style="padding: 10px 30px;">Oke</button>
         </div>
     </div>
@@ -286,6 +294,22 @@
     {{-- ============================================= --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+        // --- Toggle Password Visibility ---
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("login_password");
+
+if (togglePassword && passwordInput) {
+    togglePassword.addEventListener("click", function () {
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        passwordInput.setAttribute("type", type);
+
+        // Ganti ikon
+        this.innerHTML = type === "password" 
+            ? '<i class="fa fa-eye"></i>' 
+            : '<i class="fa fa-eye-slash"></i>';
+    });
+}
+
             // --- Data dari server (kode yang sudah ada) ---
             const isLoggedIn = JSON.parse('@json(auth()->check())');
             const registrationSuccess = JSON.parse('@json(session()->has("registration_success"))');

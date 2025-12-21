@@ -27,7 +27,7 @@
             <div class="payment-details-box">
                 <div class="detail-row">
                     <div>
-                        <label>Nomor Rekening</label>
+                        <label>Nomor Rekening BNI</label>
                         <strong id="rekening-number">0296833658</strong>
                         <span>a/n Aris Y Mangopo</span>
                     </div>
@@ -47,7 +47,8 @@
                     <h4>Penting!</h4>
                     <ul>
                         
-                        <li>Pesanan diverifikasi setiap hari hingga pukul 22.00 WITA, kecuali hari <strong>Minggu dan libur nasional</strong>.</li>
+                        <li>Pesanan diverifikasi setiap hari hingga pukul 22.00 WITA, kecuali hari.</li>
+                        <li>Bayar sebelum batas pembayaran habis, kalau lewat pesanan akan dibatalkan</li>
                     </ul>
                 </div>
             </div>

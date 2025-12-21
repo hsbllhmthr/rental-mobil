@@ -10,7 +10,7 @@
 
         <div class="search-header">
             <h1>Temukan Mobil Sesuai Keinginan Anda</h1>
-            <p>Pilih mobil dan atur filter, lalu lanjutkan pemesanan.</p>
+            <p>Cari Mobil Atau Filter Mobil Sesuai Keinginan Anda</p>
         </div>
 
         {{-- Form ini akan mengirim data dengan metode GET --}}
@@ -48,7 +48,7 @@
             </option>
         @endforeach
         <option value="Manual & Otomatis" {{ request('transmisi') == 'Manual & Otomatis' ? 'selected' : '' }}>
-        Manual & Otomatis
+        Matic & Manual
         </option>
     </select>
     
@@ -135,27 +135,15 @@
         <p>Mobil tidak ditemukan. Coba gunakan kata kunci atau filter yang berbeda.</p>
         
         <div class="suggestion-box">
-    <h3>Mungkin Anda bisa coba di tempat lain?</h3>
+    <h3>Mungkin Anda bisa coba menemukan mobil di tempat lain?</h3>
     <p>Berikut adalah beberapa rekomendasi rental mobil populer di Makassar:</p>
     <ul class="suggestion-list">
         <li class="suggestion-item">
-            <a href="https://www.google.com/search?q=TRAC+Astra+Rent+Car+Makassar" target="_blank">
-                <strong>TRAC Astra Rent Car</strong>
-                <span>Menyediakan berbagai jenis kendaraan dengan layanan profesional di Makassar.</span>
+            <a href="https://www.simpatitransrent.com/tentang-kami/" target="_blank">
+                <strong>SIMPATI TRANS</strong>
+                <span>penyedia transportasi di Makassar yang menawarkan layanan rental mobil tanpa sopir, dengan sopir, serta paket wisata ke Makassar dan Toraja.</span>
             </a>
-        </li>
-        <li class="suggestion-item">
-            <a href="https://www.google.com/search?q=Global+Rent+Car+Makassar" target="_blank">
-                <strong>Global Rent Car Makassar</strong>
-                <span>Pilihan populer untuk sewa mobil lepas kunci maupun dengan supir.</span>
-            </a>
-        </li>
-        <li class="suggestion-item">
-            <a href="https://www.google.com/search?q=Lio+Rent+Car+Makassar" target="_blank">
-                <strong>Lio Rent Car Makassar</strong>
-                <span>Dikenal dengan pilihan mobil yang beragam dan berlokasi dekat bandara.</span>
-            </a>
-        </li>
+      
     </ul>
 </div>
     </div>

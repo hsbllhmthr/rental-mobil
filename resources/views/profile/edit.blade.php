@@ -58,12 +58,12 @@
 
             {{-- Foto KK Saat Ini --}}
             <div class="form-group">
-                <label>Foto KK saat ini</label>
+                <label>Foto SIM A</label>
                 <div class="document-preview">
                     @if($user->foto_kk)
                         <img src="{{ asset('storage/' . $user->foto_kk) }}" alt="Foto KK" class="profile-document-image">
                     @else
-                        <span class="no-image">Belum ada foto KK.</span>
+                        <span class="no-image">Belum ada foto SIM A.</span>
                     @endif
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 <label for="foto_ktp" class="file-label">Pilih File...</label>
             </div>
 
-            {{-- Ubah Foto KK --}}
+            {{-- Ubah Foto SIM A --}}
             <div class="form-group">
                 <input type="file" id="foto_kk" name="foto_kk" class="file-input">
             <label for="foto_kk" class="file-label">Pilih File...</label>

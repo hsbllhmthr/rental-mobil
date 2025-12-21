@@ -5,7 +5,7 @@
 @section('content')
 <div class="register-container">
     <div class="register-header">
-        <h1>Daftar Akun Baru Tri Manunggala Rent</h1>
+        <h1>Daftar Akun Baru Tri Manunggal</h1>
         <p>Silahkan Masukkan Data Anda Dengan Benar</p>
     </div>
     
@@ -58,24 +58,36 @@
 
             {{-- Upload Foto Kartu Keluarga --}}
             <div class="form-group-large">
-                <label for="kk_photo">Upload Foto Kartu Keluarga</label>
+                <label for="kk_photo">Upload Foto Kartu SIM A</label>
                 <div class="file-upload-wrapper">
                     <input type="file" id="kk_photo" name="kk_photo" class="file-input" required>
                     <label for="kk_photo" class="file-label">Pilih File...</label>
                 </div>
             </div>
+{{-- Password --}}
+<div class="form-group-large" style="position: relative; margin-bottom:15px;">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Masukkan Password" required
+        style="width:100%; padding:10px 40px 10px 10px; border:1px solid #ccc; border-radius:6px;">
+    <span onclick="togglePassword('password', this)" 
+          style="position:absolute; top:70%; right:12px; transform:translateY(-50%);
+                 cursor:pointer; background:#fff; padding-left:4px;">
+        <i class="fa fa-eye"></i>
+    </span>
+</div>
 
-            {{-- Password --}}
-            <div class="form-group-large">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Masukkan Password" required>
-            </div>
+{{-- Konfirmasi Password --}}
+<div class="form-group-large" style="position: relative; margin-bottom:15px;">
+    <label for="password_confirmation">Konfirmasi Password</label>
+    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Masukkan Ulang Password" required
+        style="width:100%; padding:10px 40px 10px 10px; border:1px solid #ccc; border-radius:6px;">
+    <span onclick="togglePassword('password_confirmation', this)" 
+          style="position:absolute; top:70%; right:12px; transform:translateY(-50%);
+                 cursor:pointer; background:#fff; padding-left:4px;">
+        <i class="fa fa-eye"></i>
+    </span>
+</div>
 
-            {{-- Konfirmasi Password --}}
-            <div class="form-group-large">
-                <label for="password_confirmation">Konfirmasi Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Masukkan Ulang Password" required>
-            </div>
         </div>
 
         <button type="submit" class="btn-register-submit">Daftarkan Akun</button>
@@ -85,4 +97,20 @@
         Sudah punya akun ? <a href="#" id="login-btn">Masuk Disini</a>
     </p>
 </div>
+<script>
+function togglePassword(fieldId, el) {
+  var input = document.getElementById(fieldId);
+  var icon = el.querySelector("i");
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  } else {
+    input.type = "password";
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  }
+}
+</script>
+
 @endsection

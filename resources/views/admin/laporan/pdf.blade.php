@@ -67,7 +67,7 @@
                     <td class="text-center" style="border: none; padding: 0;"><h2 style="line-height: 1.0;">Tri Manunggal</h2></td>
                 </tr>
                 <tr style="border: none;">
-                    <td class="text-center" style="border: none; padding: 0; font-size: 12px; line-height: 1.0;">Jl. Raya Buniayu, Ds.Sukahurip, Kec.Sukatani. Bekasi</td>
+                    <td class="text-center" style="border: none; padding: 0; font-size: 12px; line-height: 1.0;">Tamalanrea, Kec. Tamalanrea, Kota Makassar, Sulawesi Selatan 90245</td>
                 </tr>
             </tbody>
         </table>

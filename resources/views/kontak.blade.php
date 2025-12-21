@@ -27,7 +27,7 @@
                 <i class="fa-solid fa-envelope"></i>
                 <div>
                     <strong>Alamat Email</strong>
-                    <span>trimanunggala@gmail.com</span>
+                    <span>trimanunggal@gmail.com</span>
                 </div>
             </div>
             <div class="contact-item">

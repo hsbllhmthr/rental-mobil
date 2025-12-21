@@ -98,7 +98,7 @@
                 <li><img src="{{ asset('images/icons/icon-users.png') }}"> Jumlah Penumpang : {{ $mobil->kapasitas }} Orang</li>
             </ul>
 
-            <a href="{{ route('rental.create', $mobil->id) }}" class="btn-rental" id="rental-now-btn">Rental Sekarang</a>
+            <a href="{{ route('rental.create', $mobil->id) }}" class="btn-rental" id="rental-now-btn">Pesan Mobil</a>
         </div>
     </div>
 </div>

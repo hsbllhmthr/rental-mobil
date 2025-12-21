@@ -75,7 +75,7 @@
             <select id="transmisi" name="transmisi" required>
                 <option value="Manual" {{ old('transmisi', $mobil->transmisi) == 'Manual' ? 'selected' : '' }}>Manual</option>
                 <option value="Otomatis" {{ old('transmisi', $mobil->transmisi) == 'Otomatis' ? 'selected' : '' }}>Otomatis</option>
-                <option value="Manual & Otomatis" {{ old('transmisi', $mobil->transmisi) == 'Manual & Otomatis' ? 'selected' : '' }}>Manual & Otomatis</option>
+                <option value="Manual & Otomatis" {{ old('transmisi', $mobil->transmisi) == 'Manual & Otomatis' ? 'selected' : '' }}>Matic & Manual</option>
             </select>
         </div>
         <div class="form-group">

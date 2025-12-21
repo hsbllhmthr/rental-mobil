@@ -38,10 +38,16 @@
             <input type="password" id="password" name="password" required>
         </div>
 
-        <div class="form-group-large">
-            <label for="password_confirmation">Konfirmasi Password Baru</label>
-            <input type="password" id="password_confirmation" name="password_confirmation" required>
-        </div>
+        <div class="form-group-large" style="position: relative; margin-bottom:15px;">
+    <label for="password_confirmation">Konfirmasi Password Baru</label>
+    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Masukkan Konfirmasi Password" required
+        style="width:100%; padding:10px 40px 10px 10px; border:1px solid #ccc; border-radius:6px;">
+    <span onclick="togglePassword('password_confirmation', this)" 
+          style="position:absolute; top:70%; right:12px; transform:translateY(-50%);
+                 cursor:pointer; background:#fff; padding-left:4px;">
+        <i class="fa fa-eye"></i>
+    </span>
+</div>
 
         <div class="profile-form-actions">
         <a href="{{ route('profile.edit') }}" class="btn btn-outline">Kembali</a>
@@ -49,4 +55,17 @@
     </div>
     </form>
 </div>
+
+<script>
+function togglePassword(fieldId, icon) {
+    const input = document.getElementById(fieldId);
+    if(input.type === "password"){
+        input.type = "text";
+        icon.innerHTML = '<i class="fa fa-eye-slash"></i>'; // optional: ganti icon saat aktif
+    } else {
+        input.type = "password";
+        icon.innerHTML = '<i class="fa fa-eye"></i>';
+    }
+}
+</script>
 @endsection

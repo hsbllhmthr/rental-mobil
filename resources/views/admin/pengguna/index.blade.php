@@ -23,7 +23,7 @@
                         <th>Telp</th>
                         <th>Alamat</th>
                         <th>KTP</th>
-                        <th>KK</th>
+                        <th>SIM A</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>

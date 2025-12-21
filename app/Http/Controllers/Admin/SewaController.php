@@ -12,18 +12,14 @@ class SewaController extends Controller
      * Menampilkan data sewa yang menunggu pembayaran.
      */
     public function menungguPembayaran()
-    {
-        // Tentukan status apa saja yang ingin ditampilkan di halaman ini
-        $statuses = ['menunggu_pembayaran', 'dibatalkan'];
+{
+    $rentals = Rental::where('status', 'menunggu_pembayaran')
+        ->orderBy('id', 'desc')
+        ->paginate(10);
 
-        // Ubah query dari where() menjadi whereIn()
-        $rentals = Rental::whereIn('status', $statuses)
-                    ->with(['user', 'mobil'])
-                    ->latest()
-                    ->paginate(10);
-        
-        return view('admin.sewa.menunggu-pembayaran', compact('rentals'));
-    }
+    return view('admin.sewa.menunggu-pembayaran', compact('rentals'));
+}
+
 
     /**
      * Mengupdate status rental.

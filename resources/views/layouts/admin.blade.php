@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Admin Dashboard') - Tri Manunggala Car</title>
+    <title>@yield('title', 'Admin Dashboard') - Tri Manunggal Car</title>
     
     {{-- Mengimpor Font --}}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
         {{-- SIDEBAR NAVIGASI --}}
         <aside class="admin-sidebar">
             <div class="sidebar-header">
-                <h2>Admin Tri Manunggala</h2>
+                <h2>Admin Tri Manunggal</h2>
             </div>
             <nav class="sidebar-nav">
                 <a href="{{ route('admin.dashboard') }}" class="{{ request()->is('admin/dashboard*') ? 'active' : '' }}">

@@ -9,39 +9,38 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class LaporanController extends Controller
 {
-    public function index(Request $request)
-    {
-        $query = Rental::with(['user', 'mobil']);
+   public function index(Request $request)
+{
+    $query = Rental::with(['user', 'mobil'])
+                   ->where('status', 'Selesai'); // hanya selesai
 
-        // Filter berdasarkan tanggal jika ada input
-        if ($request->filled('tanggal_awal') && $request->filled('tanggal_akhir')) {
-            $query->whereBetween('tanggal_mulai', [$request->tanggal_awal, $request->tanggal_akhir]);
-        }
-
-        // Ambil semua data yang cocok (tanpa pagination untuk laporan)
-        $rentals = $query->latest()->get();
-
-        return view('admin.laporan.index', compact('rentals'));
+    // Filter berdasarkan tanggal jika ada input
+    if ($request->filled('tanggal_awal') && $request->filled('tanggal_akhir')) {
+        $query->whereBetween('tanggal_mulai', [$request->tanggal_awal, $request->tanggal_akhir]);
     }
 
-    public function cetakPdf(Request $request)
-    {
-        $query = Rental::with(['user', 'mobil']);
+    $rentals = $query->latest()->get();
 
-        $tanggal_awal = $request->tanggal_awal;
-        $tanggal_akhir = $request->tanggal_akhir;
+    return view('admin.laporan.index', compact('rentals'));
+}
 
-        // Terapkan filter tanggal yang sama seperti di halaman laporan
-        if ($tanggal_awal && $tanggal_akhir) {
-            $query->whereBetween('tanggal_mulai', [$tanggal_awal, $tanggal_akhir]);
-        }
+public function cetakPdf(Request $request)
+{
+    $query = Rental::with(['user', 'mobil'])
+                   ->where('status', 'Selesai'); // hanya selesai
 
-        $rentals = $query->latest()->get();
+    $tanggal_awal = $request->tanggal_awal;
+    $tanggal_akhir = $request->tanggal_akhir;
 
-        // Buat PDF dari view baru yang akan kita buat
-        $pdf = Pdf::loadView('admin.laporan.pdf', compact('rentals', 'tanggal_awal', 'tanggal_akhir'));
-        
-        // Tampilkan PDF di browser sebagai preview
-        return $pdf->stream('laporan-pendapatan.pdf');
+    if ($tanggal_awal && $tanggal_akhir) {
+        $query->whereBetween('tanggal_mulai', [$tanggal_awal, $tanggal_akhir]);
     }
+
+    $rentals = $query->latest()->get();
+
+    $pdf = Pdf::loadView('admin.laporan.pdf', compact('rentals', 'tanggal_awal', 'tanggal_akhir'));
+    return $pdf->stream('laporan-pendapatan.pdf');
+}
+
+
 }

@@ -295,7 +295,7 @@
 
                 {{-- Kolom 1: Tentang Perusahaan --}}
                 <div class="footer-column about">
-                    <h3>Tri Manunggala </h3>
+                    <h3>Tri Manunggal </h3>
                     <p>
                         Penyedia layanan rental mobil terpercaya <br> dengan koleksi kendaraan berkualitas <br> untuk kebutuhan perjalanan Anda.
                     </p>
@@ -322,7 +322,7 @@
                         </li>
                         <li class="contact-item">
                             <strong>Alamat Email</strong>
-                            <span>trimanunggala@gmail.com</span>
+                            <span>trimanunggal@gmail.com</span>
                         </li>
                         <li class="contact-item">
                             <strong>Alamat</strong>
@@ -360,7 +360,7 @@
     <div class="modal-content">
         <span class="close-button">&times;</span>
         <div class="modal-header">
-            <h1>Selamat Datang di Tri Manunggala Rent</h1>
+            <h1>Selamat Datang di Tri Manunggal Rent</h1>
             <p>Silahkan Masukkan Alamat Email <br> dan Password Anda</p>
         </div>
         

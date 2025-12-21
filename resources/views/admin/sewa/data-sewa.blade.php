@@ -10,7 +10,7 @@
     @endif
 
     <div class="page-header">
-        <h1 class="page-title">Kelola Sewa</h1>
+        <h1 class="page-title">Data Sewa</h1>
     </div>
 
     <div class="data-card">
@@ -88,7 +88,7 @@
                                data-mobil="{{ $rental->mobil->nama_mobil ?? 'Mobil Dihapus' }}"
                                data-mulai="{{ $rental->tanggal_mulai->format('d-m-Y') }}"
                                data-selesai="{{ $rental->tanggal_selesai->format('d-m-Y') }}"
-                               data-durasi="{{ $rental->tanggal_selesai->diffInDays($rental->tanggal_mulai) }} Hari"
+                               data-durasi="{{ $rental->tanggal_mulai->diffInDays($rental->tanggal_selesai, false) +1}} Hari"
                                data-penyewa="{{ $rental->user->name ?? 'User Dihapus' }}"
                                data-total="Rp {{ number_format($rental->total_biaya, 0, ',', '.') }}"
                                data-status="{{ ucwords(str_replace('_', ' ', $rental->status)) }}"

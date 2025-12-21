@@ -30,12 +30,12 @@
                     <div class="form-group">
                         <label for="pickup_method">Metode Pickup</label>
                         <select id="pickup_method" name="pickup_method" required>
-                            <option value="Ambil di Kantor">Ambil di Kantor</option>
-                            <option value="Diantar ke Alamat">Diantar ke Alamat</option>
+                            <option value="Ambil di Kantor">Ambil di Lokasi Rental</option>
+                            <option value="Diantar ke Alamat">Antar ke Lokasi</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="pickup_address">Alamat Antar/Jemput</label>
+                        <label for="pickup_address">Alamat Rumah</label>
                         <input type="text" id="pickup_address" name="pickup_address" value="{{ Auth::user()->alamat }}" placeholder="Isi jika memilih diantar">
                     </div>
                     <div class="form-group">
@@ -188,7 +188,7 @@
                 const start = new Date(startDate);
                 const end = new Date(endDate);
                 if (end > start) {
-                    durasiHari = Math.ceil(Math.abs(end - start) / (1000 * 60 * 60 * 24));
+                    durasiHari = Math.ceil(Math.abs(end - start) / (1000 * 60 * 60 * 24)) +1;
                 }
             }
             summaryDuration.value = durasiHari > 0 ? durasiHari + ' Hari' : '-';

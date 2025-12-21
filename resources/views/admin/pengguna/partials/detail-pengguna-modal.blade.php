@@ -31,7 +31,7 @@
                         <img id="view-user-ktp" src="" alt="Foto KTP" class="lightbox-trigger">
                     </div>
                     <div>
-                        <p>Foto KK</p>
+                        <p>Foto SIM A</p>
                         {{-- Tambahkan class 'lightbox-trigger' di sini --}}
                         <img id="view-user-kk" src="" alt="Foto KK" class="lightbox-trigger">
                     </div>

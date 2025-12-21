@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - Tri Manunggala Rent</title>
+    <title>Admin Login - Tri Manunggal Rent</title>
 
     {{-- Mengimpor Font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">

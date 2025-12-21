@@ -5,7 +5,7 @@
 @section('content')
     {{-- Bagian Banner Atas --}}
     <div class="about-us-banner">
-        <img src="{{ asset('images/banner-about.jpg') }}" alt="Tentang Kami Banner">
+        <img src="{{ asset('images/gambar3.jpg') }}" alt="Tentang Kami Banner">
     </div>
 
     <div class="about-us-container">
@@ -16,19 +16,19 @@
 
         {{-- Konten Utama --}}
         <section class="about-section">
-            <h2>Tentang Tri Manunggala</h2>
+            <h2>Tentang Tri Manunggal</h2>
             <p>
-                Tri Manunggala adalah perusahaan rental mobil yang hadir untuk memenuhi berbagai kebutuhan transportasi Anda. Kami menyewakan berbagai jenis mobil, dan siap menyediakan kendaraan sesuai dengan keinginan pelanggan, baik untuk perjalanan keluarga, bisnis, maupun acara khusus.
+                Tri Manunggal adalah perusahaan rental mobil yang hadir untuk memenuhi berbagai kebutuhan transportasi Anda. Kami menyewakan berbagai jenis mobil, dan siap menyediakan kendaraan sesuai dengan keinginan pelanggan, baik untuk perjalanan keluarga, bisnis, maupun acara khusus.
             </p>
             <p>
-                Dengan pelayanan ramah, harga bersahabat, dan armada yang selalu terawat, kami berkomitmen membuat pelanggan merasa senyaman mungkin. Bersama Tri Manunggala, setiap perjalanan anda selalu terjamin, terpercaya, aman, dan nyaman!
+                Dengan pelayanan ramah, harga bersahabat, dan armada yang selalu terawat, kami berkomitmen membuat pelanggan merasa senyaman mungkin. Bersama Tri Manunggal, setiap perjalanan anda selalu terjamin, terpercaya, aman, dan nyaman!
             </p>
         </section>
 
         <section class="about-section">
             <h2>Visi </h2>
             <p>
-                Menjadi perusahaan rental mobil terpercaya di Sulawesi Selatan yang memberikan pelayanan terbaik, armada berkualitas, serta pengalaman perjalanan yang aman, nyaman, dan berkesan bagi setiap pelanggan.
+                Menjadi perusahaan rental mobil terpercaya di Sulawesi Selatan yang memberikan pelayanan terbaik, armada berkualitas, serta pengalaman perjalanan yang aman, nyaman, dan berkesan bagi setiap pelanggan, dan juga bosa melayani jasa driver
             </p>
         </section>
 
