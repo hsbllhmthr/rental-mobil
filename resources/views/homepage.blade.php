@@ -318,7 +318,7 @@
                     <ul>
                         <li class="contact-item">
                             <strong>Telepon</strong>
-                            <span>+62 813-5581-1336</span>
+                            <span>081355811336</span>
                         </li>
                         <li class="contact-item">
                             <strong>Alamat Email</strong>

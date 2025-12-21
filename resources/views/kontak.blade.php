@@ -20,7 +20,7 @@
                 <i class="fa-solid fa-phone"></i>
                 <div>
                     <strong>Telepon</strong>
-                    <span>+62 813-5581-1336</span>
+                    <span>0813-5581-1336</span>
                 </div>
             </div>
             <div class="contact-item">

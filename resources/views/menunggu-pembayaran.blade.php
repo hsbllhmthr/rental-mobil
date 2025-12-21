@@ -28,8 +28,8 @@
                 <div class="detail-row">
                     <div>
                         <label>Nomor Rekening</label>
-                        <strong id="rekening-number">1234567891012131415</strong>
-                        <span>A/n Irfan Maulana Fardi</span>
+                        <strong id="rekening-number">0296833658</strong>
+                        <span>a/n Aris Y Mangopo</span>
                     </div>
                     <button class="btn-copy" data-clipboard-target="#rekening-number">Salin</button>
                 </div>
@@ -46,9 +46,8 @@
                 <div class="payment-info">
                     <h4>Penting!</h4>
                     <ul>
-                        <li>Transfer tepat hingga <strong>3 digit terakhir</strong>.</li>
-                        <li>Layanan pengiriman hanya tersedia dari <strong>Senin hingga Sabtu</strong>.</li>
-                        <li>Pesanan diverifikasi setiap hari hingga pukul 16.00 WITA, kecuali hari <strong>Minggu dan libur nasional</strong>.</li>
+                        
+                        <li>Pesanan diverifikasi setiap hari hingga pukul 22.00 WITA, kecuali hari <strong>Minggu dan libur nasional</strong>.</li>
                     </ul>
                 </div>
             </div>

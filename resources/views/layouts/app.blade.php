@@ -172,9 +172,9 @@
                 <div class="footer-column">
                     <h3>Kontak Informasi</h3>
                     <ul class="contact-list">
-                        <li><strong>Telepon</strong><span>+62 813-5581-1336</span></li>
-                        <li><strong>Alamat Email</strong><span>trimanunggala@gmail.com</span></li>
-                        <li><strong>Alamat</strong><span>Tamalanrea, Makassar City, South Sulawesi, 90245</span></li>
+                        <li><strong>Telepon : </strong><span>081355811336</span></li>
+                        <li><strong>Alamat Email : </strong><span>trimanunggala@gmail.com</span></li>
+                        <li><strong>Alamat : </strong><span>Tamalanrea, Makassar City, South Sulawesi, 902455</span></li>
                     </ul>
                 </div>
                 <div class="footer-column">

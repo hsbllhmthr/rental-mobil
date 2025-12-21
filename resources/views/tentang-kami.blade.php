@@ -18,17 +18,17 @@
         <section class="about-section">
             <h2>Tentang Tri Manunggala</h2>
             <p>
-                TRI BERKAH ABADI adalah Perusahaan yang bergerak dibidang transportasi pariwisata dan tour travel, dimana kami menyediakan jasa angkutan wisata sesuai dengan keinginan konsumen dan jasa paket wisata dengan tujuan Sulawesi Selatan.
+                Tri Manunggala adalah perusahaan rental mobil yang hadir untuk memenuhi berbagai kebutuhan transportasi Anda. Kami menyewakan berbagai jenis mobil, dan siap menyediakan kendaraan sesuai dengan keinginan pelanggan, baik untuk perjalanan keluarga, bisnis, maupun acara khusus.
             </p>
             <p>
-                Dasar Pemikiran menyadari akan iklim pariwisata di indonesia yang saat ini cenderung sangat cepat pekembangannya, serta untuk mendukung program pemerintah dalam memajukan sektor pariwisata nasional “TRI BERKAH ABADI” turut hadir meramaikan dunia Pariwisata di Indonesia khususnya Provinsi Sulawesi Selatan, maka terbentuklah CV. Tri Berkah Abadi pada Tahun 2021 yang berdomisili di Gedung Perkantoran HQ Delft Apartment UG 12 Jl. Sunset Boulevard Blok 5B/16 Citraland City, Centre Point of Indonesia (CPI)
+                Dengan pelayanan ramah, harga bersahabat, dan armada yang selalu terawat, kami berkomitmen membuat pelanggan merasa senyaman mungkin. Bersama Tri Manunggala, setiap perjalanan anda selalu terjamin, terpercaya, aman, dan nyaman!
             </p>
         </section>
 
         <section class="about-section">
             <h2>Visi </h2>
             <p>
-                Menjadi Perusahaan berkelas dan profesional di dalam bidang Transportasi Darat sehingga tercipta mitra bisnis strategis dan terpercaya di bidang jasa transportasi yang selalu fokus pada peningkatan pelayanan serta selalu berorientasi pada kepuasan pelanggan.
+                Menjadi perusahaan rental mobil terpercaya di Sulawesi Selatan yang memberikan pelayanan terbaik, armada berkualitas, serta pengalaman perjalanan yang aman, nyaman, dan berkesan bagi setiap pelanggan.
             </p>
         </section>
 
@@ -36,9 +36,11 @@
             <h2>Misi </h2>
             {{-- Menggunakan Unordered List untuk Misi --}}
             <ul>
-                <li>Meningkatkan kepuasan Customer dengan menetapkan kualitas layanan yang terbaik.</li>
-                <li>Mengembangkan serta mempertahankan kualitas perusahaan agar dapat menjadi pemimpin pasar.</li>
-                <li>Bersama dengan Pelanggan dan karyawan, membangun bisnis yang berkelanjutan.</li>
+                <li>Menyediakan berbagai jenis mobil sesuai kebutuhan dan keinginan pelanggan.</li>
+                <li>Mengutamakan kenyamanan, keamanan, dan kepuasan pelanggan dalam setiap layanan.</li>
+                <li>Menjaga kualitas armada dengan perawatan berkala agar selalu prima saat digunakan.</li>
+                <li>Memberikan pelayanan yang ramah, profesional, dan tepat waktu.</li>
+                <li>Menyajikan informasi mobil secara jujur dan sesuai kondisi asli, tanpa melebih-lebihkan, agar pelanggan merasa aman dan terhindar dari kerugian.</li>
             </ul>
         </section>
     </div>
