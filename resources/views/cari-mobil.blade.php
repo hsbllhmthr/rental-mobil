@@ -31,15 +31,18 @@
         @endforeach
     </select>
 
+    @if ($kapasitas_options->isNotEmpty())
     <select name="kapasitas">
         <option value="">Pilih Kapasitas</option>
-        <option value="2" {{ request('kapasitas') == 2 ? 'selected' : '' }}>2 Orang</option>
-        <option value="4" {{ request('kapasitas') == 4 ? 'selected' : '' }}>4 Orang</option>
-        <option value="5" {{ request('kapasitas') == 5 ? 'selected' : '' }}>5 Orang</option>
-        <option value="7" {{ request('kapasitas') == 7 ? 'selected' : '' }}>7 Orang</option>
-        <option value="8" {{ request('kapasitas') == 8 ? 'selected' : '' }}>8 Orang</option>
+        @foreach ($kapasitas_options as $option)
+            <option value="{{ $option->kapasitas }}" {{ request('kapasitas') == $option->kapasitas ? 'selected' : '' }}>
+                {{ $option->kapasitas }} Orang
+            </option>
+        @endforeach
     </select>
+    @endif
 
+    @if ($transmisi_options->isNotEmpty())
     <select name="transmisi">
         <option value="">Pilih Transmisi</option>
         @foreach ($transmisi_options as $option)
@@ -47,22 +50,19 @@
                 {{ $option->transmisi }}
             </option>
         @endforeach
-        <option value="Manual & Otomatis" {{ request('transmisi') == 'Manual & Otomatis' ? 'selected' : '' }}>
-        Matic & Manual
-        </option>
     </select>
+    @endif
     
+    @if ($tipe_mobil_options->isNotEmpty())
     <select name="tipe_mobil">
         <option value="">Pilih Tipe Mobil</option>
-            @foreach ($tipe_mobil_options as $option)
+        @foreach ($tipe_mobil_options as $option)
             <option value="{{ $option->tipe_mobil }}" {{ request('tipe_mobil') == $option->tipe_mobil ? 'selected' : '' }}>
                 {{ $option->tipe_mobil }}
-        </option>
+            </option>
         @endforeach
-         <option value="SUV" {{ request('tipe_mobil') == 'SUV' ? 'selected' : '' }}>
-        SUV
-    </option>
     </select>
+    @endif
 
     {{-- TAMBAHKAN KEMBALI DROPDOWN INI --}}
     <div class="filter-group">

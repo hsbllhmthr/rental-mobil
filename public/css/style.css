@@ -1508,10 +1508,10 @@ a.card-link {
     width: 120px;
 }
 .page-container .btn-icon {
-    margin-top: 10px;
-    padding: 5px;
-    width: 1px;
-    height: 1px;
+    margin-top: 0;
+    padding: 0;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background-color: #f5f5f5;
     color: #555;
@@ -1526,7 +1526,7 @@ a.card-link {
 }
 .page-container .btn-icon i {
     font-size: 15px;
-    line-height: 2;
+    line-height: 1;
 }
 
 .btn.btn-primary.btn-icon {
@@ -3348,14 +3348,38 @@ a.card-link {
     }
 }
 
-.bukti-pembayaran-img {
-    width: 100%; /* Ubah ini agar lebar fleksibel */
-    max-width: 305px; /* Atur batas lebar maksimal di sini */
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    display: block; /* Pastikan gambar tidak memiliki spasi ekstra di bawahnya */
-    margin: 0 auto; /* Pusatkan gambar jika kontainernya lebih lebar */
-    margin-top: 20px;
+/* Floating WhatsApp Button */
+.whatsapp-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; /* WhatsApp green */
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none; /* Remove underline */
+}
+
+.whatsapp-fab:hover {
+    background-color: #128c7e; /* Darker green on hover */
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .whatsapp-fab {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 15px;
+        right: 15px;
+    }
 }

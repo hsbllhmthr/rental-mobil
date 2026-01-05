@@ -44,7 +44,7 @@ Route::get('/rental/{mobil}', [RentalController::class, 'create'])->middleware('
 
 Route::get('/kontak', [HomeController::class, 'kontak'])->name('kontak');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/cek-ketersediaan/{mobil}', [RentalController::class, 'cekKetersediaan'])->name('rental.cek_ketersediaan');
     Route::get('/riwayat-sewa', [ProfileController::class, 'riwayatSewa'])->name('riwayat.sewa');
     Route::get('/password/edit', [ProfileController::class, 'editPassword'])->name('password.edit');
@@ -106,3 +106,6 @@ Route::prefix('admin')->group(function () {
         Route::get('/sewa/data-sewa', [SewaController::class, 'dataSewa'])->name('admin.sewa.data_sewa');
     });
 });
+
+require __DIR__.'/password_reset.php';
+require __DIR__.'/email_verification.php';

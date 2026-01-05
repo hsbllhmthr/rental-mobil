@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
@@ -56,11 +57,11 @@ class AuthController extends Controller
             'foto_kk' => $kkPath,
         ]);
 
-        // 4. Login-kan user yang baru saja mendaftar
-        Auth::login($user);
+        // 4. Picu event 'Registered' yang akan mengirim email verifikasi
+        event(new Registered($user));
 
-        // 5. Arahkan ke halaman utama
-        return redirect()->route('home')->with('registration_success', 'Pendaftaran Anda berhasil!');
+        // 5. Arahkan ke halaman utama dengan pesan status
+        return redirect()->route('home')->with('status', 'Pendaftaran berhasil! Silakan cek email Anda untuk tautan verifikasi.');
     }
 
     public function login(Request $request)
@@ -81,8 +82,6 @@ class AuthController extends Controller
         return redirect()->intended(route('home'));
     }
 
-    return back()->withErrors([
-        'email' => 'Email atau password salah.',
-    ])->onlyInput('email');
+    return back()->with('login_error', true)->withInput();
 }
 }

@@ -44,7 +44,7 @@ class RentalController extends Controller
             'tanggal_mulai' => $validated['start_date'],
             'tanggal_selesai' => $validated['end_date'],
             'total_biaya' => $totalBiaya,
-            'payment_deadline' => now()->addHours(24), // Set deadline 24 jam dari sekarang
+            'payment_deadline' => now()->addHour(), // Set deadline 1 jam dari sekarang
             'status' => 'menunggu_pembayaran',
         ]);
         

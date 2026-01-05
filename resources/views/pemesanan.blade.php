@@ -85,6 +85,10 @@
                         <strong id="summary-total">Rp0</strong>
                     </div>
                     <button type="submit" class="btn-submit-rental">Sewa Sekarang</button>
+                    <a href="https://wa.me/6281355811336?text={{ urlencode('Halo, saya ingin bertanya lebih lanjut mengenai penyewaan mobil ' . $mobil->merek->nama_merek . ' ' . $mobil->nama_mobil . ' (ID Mobil: ' . $mobil->id . '). Harga sewa per hari: Rp' . number_format($mobil->harga_sewa, 0, ',', '.') . ', Biaya driver per hari: Rp150.000.') }}" 
+                       target="_blank" 
+                       class="btn btn-outline" 
+                       style="margin-top: 10px; width: 100%;">Tanyakan Lebih Lanjut</a>
                     <p class="terms">Dengan menekan “Sewa Sekarang”, Anda menyetujui syarat & ketentuan sewa yang berlaku.</p>
                 </div>
             </div>

@@ -20,7 +20,7 @@
                 <div id="countdown-timer" class="countdown-timer">--:--:--</div>
                 <p class="payment-deadline">
                     Batas Akhir Pembayaran<br>
-                    <strong>{{ $rental->payment_deadline->format('l, d F Y H:i') }} WITA</strong>
+                    <strong>{{ $rental->payment_deadline->setTimezone('Asia/Makassar')->format('l, d F Y H:i') }} WITA</strong>
                 </p>
             </div>
 
@@ -28,10 +28,34 @@
                 <div class="detail-row">
                     <div>
                         <label>Nomor Rekening BNI</label>
-                        <strong id="rekening-number">0296833658</strong>
+                        <strong id="rekening-bni">0296833658</strong>
                         <span>a/n Aris Y Mangopo</span>
                     </div>
-                    <button class="btn-copy" data-clipboard-target="#rekening-number">Salin</button>
+                    <button class="btn-copy" data-clipboard-target="#rekening-bni">Salin</button>
+                </div>
+                <div class="detail-row">
+                    <div>
+                        <label>Nomor Rekening BCA</label>
+                        <strong id="rekening-bca">8735129356</strong>
+                        <span>a/n Haslinang Hj</span>
+                    </div>
+                    <button class="btn-copy" data-clipboard-target="#rekening-bca">Salin</button>
+                </div>
+                <div class="detail-row">
+                    <div>
+                        <label>Nomor Rekening BRI</label>
+                        <strong id="rekening-bri">341901044070536</strong>
+                        <span>a/n Aris Y Mangopa</span>
+                    </div>
+                    <button class="btn-copy" data-clipboard-target="#rekening-bri">Salin</button>
+                </div>
+                <div class="detail-row">
+                    <div>
+                        <label>Nomor Rekening Mandiri</label>
+                        <strong id="rekening-mandiri">1520006730804</strong>
+                        <span>a/n Hj. Haslinang</span>
+                    </div>
+                    <button class="btn-copy" data-clipboard-target="#rekening-mandiri">Salin</button>
                 </div>
                 <div class="detail-row">
                     <div>
@@ -90,7 +114,8 @@
             // --- Fungsionalitas Countdown Timer ---
             const timerElement = document.getElementById('countdown-timer');
             if (timerElement) {
-                const paymentDeadline = new Date('{{ $rental->payment_deadline }}').getTime();
+                // Gunakan Unix timestamp (dalam milidetik) untuk menghindari masalah timezone
+                const paymentDeadline = {{ $rental->payment_deadline->getTimestamp() * 1000 }};
                 const timerInterval = setInterval(() => {
                     const now = new Date().getTime();
                     const timeLeft = paymentDeadline - now;

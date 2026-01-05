@@ -73,9 +73,9 @@
         <div class="form-group">
             <label for="transmisi">Transmisi</label>
             <select id="transmisi" name="transmisi" required>
+                <option value="Matic" {{ old('transmisi', $mobil->transmisi) == 'Matic' ? 'selected' : '' }}>Matic</option>
                 <option value="Manual" {{ old('transmisi', $mobil->transmisi) == 'Manual' ? 'selected' : '' }}>Manual</option>
-                <option value="Otomatis" {{ old('transmisi', $mobil->transmisi) == 'Otomatis' ? 'selected' : '' }}>Otomatis</option>
-                <option value="Manual & Otomatis" {{ old('transmisi', $mobil->transmisi) == 'Manual & Otomatis' ? 'selected' : '' }}>Matic & Manual</option>
+                <option value="Matic & Manual" {{ old('transmisi', $mobil->transmisi) == 'Matic & Manual' ? 'selected' : '' }}>Matic & Manual</option>
             </select>
         </div>
         <div class="form-group">
