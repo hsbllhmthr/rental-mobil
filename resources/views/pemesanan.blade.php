@@ -8,7 +8,8 @@
         <a href="{{ route('home') }}">Beranda</a> / <span>Formulir Pemesanan</span>
     </nav>
 
-    <form id="booking-form" action="{{ route('rental.store', $mobil->id) }}" method="POST">
+    <form id="booking-form" action="{{ route('pemesanan.store') }}" method="POST">
+        <input type="hidden" name="mobil_id" value="{{ $mobil->id }}">
         @csrf
         <div class="booking-layout">
             

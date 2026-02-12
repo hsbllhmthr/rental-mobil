@@ -39,7 +39,7 @@
                     <tr>
                         <td>{{ $rentals->firstItem() + $loop->index }}</td>
                         <td>TRX{{ str_pad($rental->id, 5, '0', STR_PAD_LEFT) }}</td>
-                        <td>{{ $rental->mobil->nama_mobil ?? 'Mobil Dihapus' }}</td>
+                        <td>{{ $rental->mobil?->nama_mobil ?? 'Mobil Dihapus' }}</td>
                         <td>{{ $rental->tanggal_mulai->format('d-m-Y') }}</td>
                         <td>{{ $rental->tanggal_selesai->format('d-m-Y') }}</td>
                         <td>Rp {{ number_format($rental->total_biaya, 0, ',', '.') }}</td>
@@ -105,7 +105,7 @@
                             <a href="#" class="btn btn-icon btn-edit" title="Lihat Detail"
                                data-modal-target="#view-sewa-modal"
                                data-kode="TRX{{ str_pad($rental->id, 5, '0', STR_PAD_LEFT) }}"
-                               data-mobil="{{ $rental->mobil->nama_mobil ?? 'Mobil Dihapus' }}"
+                               data-mobil="{{ $rental->mobil?->nama_mobil ?? 'Mobil Dihapus' }}"
                                data-mulai="{{ $rental->tanggal_mulai->format('d-m-Y') }}"
                                data-selesai="{{ $rental->tanggal_selesai->format('d-m-Y') }}"
                                data-durasi="{{ $rental->tanggal_mulai->diffInDays($rental->tanggal_selesai, false) +1}} Hari"

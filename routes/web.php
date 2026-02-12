@@ -14,6 +14,15 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Admin\BiayaDriverController;
 use App\Http\Controllers\Admin\LaporanController;
+use Illuminate\Http\Request;
+
+Route::get('/test-form', function () {
+    return '<form action="/test-post" method="POST"><input type="hidden" name="_token" value="' . csrf_token() . '"><button type="submit">Test POST Request</button></form>';
+});
+
+Route::post('/test-post', function (Request $request) {
+    return 'POST request to /test-post was successful!';
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +49,7 @@ Route::get('/register', [AuthController::class, 'create'])->name('register');
 Route::post('/register', [AuthController::class, 'store'])->name('register.submit');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
-Route::get('/rental/{mobil}', [RentalController::class, 'create'])->middleware('auth')->name('rental.create');
+Route::get('/pemesanan/{mobil}', [RentalController::class, 'create'])->middleware('auth')->name('pemesanan.create');
 
 Route::get('/kontak', [HomeController::class, 'kontak'])->name('kontak');
 
@@ -51,8 +60,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/password', [ProfileController::class, 'updatePassword'])->name('password.update');
     Route::get('/profil', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profil', [ProfileController::class, 'update'])->name('profile.update');
-    Route::get('/rental/{mobil}', [RentalController::class, 'create'])->name('rental.create');
-    Route::post('/rental/{mobil}', [RentalController::class, 'store'])->name('rental.store');
+    Route::get('/pemesanan/{mobil}', [RentalController::class, 'create'])->name('pemesanan.create');
+    Route::post('/buat-pesanan', [RentalController::class, 'store'])->name('pemesanan.store');
     Route::get('/menunggu-pembayaran/{rental}', [RentalController::class, 'waitingPage'])->name('rental.waiting');
     Route::post('/pembayaran/{rental}/upload', [RentalController::class, 'uploadProof'])->name('rental.upload_proof');
     

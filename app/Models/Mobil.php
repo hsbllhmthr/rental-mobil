@@ -33,4 +33,9 @@ class Mobil extends Model
     {
         return $this->belongsTo(Merek::class);
     }
+
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
+    }
 }

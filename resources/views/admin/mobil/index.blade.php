@@ -3,9 +3,16 @@
 @section('title', 'Kelola Data Mobil')
 
 @section('content')
-    {{-- Notifikasi --}}
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+        <div class="alert alert-success" style="padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; color: #155724; background-color: #d4edda; border-color: #c3e6cb;">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger" style="padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; color: #721c24; background-color: #f8d7da; border-color: #f5c6cb;">
+            {{ session('error') }}
+        </div>
     @endif
 
     {{-- Header Halaman --}}
@@ -49,18 +56,16 @@
                         <td>{{ $mobil->bahan_bakar }}</td>
                         <td>{{ $mobil->tahun }}</td>
                         <td class="action-cell">
-                            {{-- Tombol Aksi (Edit & Hapus) akan kita fungsikan nanti --}}
                             <a href="{{ route('admin.mobil.edit', $mobil->id) }}" class="btn btn-icon btn-edit" title="Edit">
                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                             </a>
-                            <form action="{{ route('admin.mobil.destroy', $mobil->id) }}" method="POST" style="display:inline;">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-icon btn-delete" title="Hapus" 
-            onclick="return confirm('Apakah Anda yakin ingin menghapus mobil ini?')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-    </button>
-</form>
+                            <form action="{{ route('admin.mobil.destroy', $mobil->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus mobil ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-icon btn-delete" title="Hapus">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                     @empty
@@ -81,3 +86,6 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+@endpush

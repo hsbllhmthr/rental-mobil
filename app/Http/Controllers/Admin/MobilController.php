@@ -69,20 +69,28 @@ class MobilController extends Controller
     }
 
     public function destroy(Mobil $mobil)
-{
-    // Hapus gambar-gambar terkait dari storage
-    if ($mobil->gambar) {
-        $gambarPaths = json_decode($mobil->gambar, true);
-        foreach ($gambarPaths as $path) {
-            Storage::disk('public')->delete($path);
+    {
+        // Cek apakah mobil ini memiliki relasi dengan data penyewaan (rentals)
+        // Hanya cek untuk rental yang masih aktif (belum selesai atau dibatalkan)
+        if ($mobil->rentals()->whereIn('status', ['menunggu_pembayaran', 'menunggu_konfirmasi', 'sudah_dibayar'])->exists()) {
+            return redirect()->route('admin.mobil.index')->with('error', 'Gagal menghapus! Mobil ini memiliki riwayat penyewaan aktif dan tidak dapat dihapus.');
         }
+
+        // Hapus gambar-gambar terkait dari storage
+        if ($mobil->gambar) {
+            $gambarPaths = json_decode($mobil->gambar, true);
+            if (is_array($gambarPaths)) {
+                foreach ($gambarPaths as $path) {
+                    Storage::disk('public')->delete($path);
+                }
+            }
+        }
+
+        // Hapus data dari database
+        $mobil->delete();
+
+        return redirect()->route('admin.mobil.index')->with('success', 'Data mobil berhasil dihapus!');
     }
-
-    // Hapus data dari database
-    $mobil->delete();
-
-    return redirect()->route('admin.mobil.index')->with('success', 'Data mobil berhasil dihapus!');
-}
 
 public function edit(Mobil $mobil)
 {

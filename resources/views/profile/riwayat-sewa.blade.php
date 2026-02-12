@@ -28,7 +28,13 @@
                     <tr>
                         <td data-label="No">{{ $rentals->firstItem() + $loop->index }}</td>
                         <td data-label="Kode Sewa">TRX{{ str_pad($rental->id, 5, '0', STR_PAD_LEFT) }}</td>
-                        <td data-label="Nama Mobil">{{ $rental->mobil->merek->nama_merek }} {{ $rental->mobil->nama_mobil }}</td>
+                        <td data-label="Nama Mobil">
+                            @if ($rental->mobil)
+                                {{ $rental->mobil->merek->nama_merek }} {{ $rental->mobil->nama_mobil }}
+                            @else
+                                <span style="color: red;">Mobil telah dihapus</span>
+                            @endif
+                        </td>
                         <td data-label="Tgl. Mulai">{{ $rental->tanggal_mulai->format('d-m-Y') }}</td>
                         <td data-label="Tgl. Selesai">{{ $rental->tanggal_selesai->format('d-m-Y') }}</td>
                         <td data-label="Total Biaya">Rp {{ number_format($rental->total_biaya, 0, ',', '.') }}</td>
@@ -45,7 +51,7 @@
                                 <a href="#" class="btn btn-icon btn-edit" title="Lihat Detail"
                                    data-modal-target="#view-sewa-modal"
                                    data-kode="TRX{{ str_pad($rental->id, 5, '0', STR_PAD_LEFT) }}"
-                                   data-mobil="{{ $rental->mobil->merek->nama_merek ?? 'Mobil Dihapus' }}"
+                                   data-mobil="{{ $rental->mobil ? $rental->mobil->merek->nama_merek . ' ' . $rental->mobil->nama_mobil : 'Mobil telah dihapus' }}"
                                    data-mulai="{{ $rental->tanggal_mulai->format('d-m-Y') }}"
                                    data-selesai="{{ $rental->tanggal_selesai->format('d-m-Y') }}"
                                    data-durasi="{{ $rental->tanggal_mulai->diffInDays($rental->tanggal_selesai, false) +1}} Hari"

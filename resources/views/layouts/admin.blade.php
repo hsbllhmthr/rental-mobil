@@ -8,8 +8,14 @@
     {{-- Mengimpor Font --}}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    {{-- PWA Manifest --}}
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+
     {{-- Memanggil CSS Khusus Admin --}}
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    
+    {{-- PWA Service Worker Registration --}}
+    <script src="{{ asset('sw-register.js') }}" defer></script>
 </head>
 <body>
     <div class="admin-layout">

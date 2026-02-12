@@ -6,13 +6,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Rental Mobil Tri Manunggal')</title>
     
-    {{-- Include PWA Meta Tags --}}
-    <x-pwa-head />
+    {{-- PWA Manifest --}}
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
     
     {{-- Memanggil file CSS kustom Anda --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {{-- Menghubungkan Font Awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    {{-- PWA Service Worker Registration --}}
+    <script src="{{ asset('sw-register.js') }}" defer></script>
 </head>
 <body>
 
